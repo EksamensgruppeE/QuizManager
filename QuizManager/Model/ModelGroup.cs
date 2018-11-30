@@ -10,6 +10,7 @@ namespace QuizManager.Model
     {
 
         #region Properties
+        //Oplysninger omkring holdet som er tilmeldt.
         public string TeamName { get; set; }
 
         public string PhoneNumber { get; set; }
@@ -21,6 +22,20 @@ namespace QuizManager.Model
         public int NumberOfPayments { get; set; }
 
         #endregion
+
+        #region Constructor
+        // By Mosbæk
+        public ModelGroup(string teamName, string phoneNumber, int participants, int tableNr, int numberOfPayments)
+        {
+            TeamName = teamName;
+            PhoneNumber = phoneNumber;
+            Participants = participants;
+            TableNr = tableNr;
+            NumberOfPayments = numberOfPayments;
+        }
+
+        #endregion
+        
 
 
 
