@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -12,7 +13,8 @@ namespace QuizManager.ViewModel
 {
     class ViewModelBasement : INotifyPropertyChanged
     {
-        public ModelDateCollection DateCollection;
+        
+        public ObservableCollection<ModelDateCollection> DateCollection { get; set; }
 
         #region INotifyPropertyChanged
         // By Mosbæk
@@ -48,10 +50,11 @@ namespace QuizManager.ViewModel
         #endregion
 
         #region Empty Constructor
+
         public ViewModelBasement()
         {
-            DateCollection.ModelDates.TotalSeats = 50;
-
+            DateCollection = new ObservableCollection<ModelDateCollection>();
+           DateCollection.Add(new ModelDateCollection());
         }
         #endregion
 
@@ -60,13 +63,14 @@ namespace QuizManager.ViewModel
 
         public void AddSeat()
         {
-            DateCollection.ModelDates.TotalSeats++;
+            //skal ha fat i TotalSeats i ModelDate
             
         }
 
         public void RemoveSeat()
         {
-            DateCollection.ModelDates.TotalSeats--;
+            //skal ha fat i TotalSeats i ModelDate
+
         }
 
         
