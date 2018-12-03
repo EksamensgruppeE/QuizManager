@@ -12,6 +12,8 @@ namespace QuizManager.ViewModel
 {
     class ViewModelBasement : INotifyPropertyChanged
     {
+        public ModelDateCollection DateCollection;
+
         #region INotifyPropertyChanged
         // By Mosbæk
         public event PropertyChangedEventHandler PropertyChanged;
@@ -38,11 +40,37 @@ namespace QuizManager.ViewModel
 
         #endregion
 
+        #region ModelDateProps
+
+
+
+
+        #endregion
+
         #region Empty Constructor
         public ViewModelBasement()
         {
-            
+            DateCollection.ModelDates.TotalSeats = 50;
+
         }
         #endregion
+
+        #region Methods
+        //add and remove by Rasmus
+
+        public void AddSeat()
+        {
+            DateCollection.ModelDates.TotalSeats++;
+            
+        }
+
+        public void RemoveSeat()
+        {
+            DateCollection.ModelDates.TotalSeats--;
+        }
+
+        
+#endregion
+
     }
 }

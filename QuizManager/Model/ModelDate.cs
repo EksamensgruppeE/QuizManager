@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using QuizManager.Annotations;
 
 namespace QuizManager.Model
 {
-    class ModelDate
+    class ModelDate : INotifyPropertyChanged
     {
+        private int _totalSeats;
 
         #region Properties
         //Undersøg for relevant datatype
@@ -21,7 +25,15 @@ namespace QuizManager.Model
 
         public int TotalParticipants { get; set; }
 
-        public int TotalSeats { get; set; }
+        public int TotalSeats
+        {
+            get => _totalSeats;
+            set
+            {
+                _totalSeats = value; 
+                OnPropertyChanged();
+            }
+        }
 
         public int TotalPayments { get; set; }
 
@@ -63,14 +75,12 @@ namespace QuizManager.Model
         }
 
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
-
-
-
-
-
-
-
-
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
