@@ -13,8 +13,7 @@ namespace QuizManager.ViewModel
 {
     class ViewModelBasement : INotifyPropertyChanged
     {
-        //slettes
-        public string trni { get; set; }
+       
 
         #region INotifyPropertyChanged
         // By Mosbæk

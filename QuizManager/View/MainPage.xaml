@@ -39,7 +39,7 @@
 
                 <!--  QuizMaster!  -->
                 <TextBlock
-                    Name="Name"
+                    x:Name="Title"
                     Margin="0,0,50,0"
                     FontFamily="Segoe Print"
                     FontSize="50"
