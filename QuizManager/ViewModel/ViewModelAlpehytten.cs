@@ -8,6 +8,5 @@ namespace QuizManager.ViewModel
 {
     class ViewModelAlpehytten
     {
-        public string tring { get; set; }
     }
 }
