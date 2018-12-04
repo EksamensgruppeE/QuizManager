@@ -17,10 +17,7 @@
 
 
 
-    <Grid
-        MinWidth="1080"
-        MinHeight="600"
-        Background="#354357">
+    <Grid Background="#354357">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
