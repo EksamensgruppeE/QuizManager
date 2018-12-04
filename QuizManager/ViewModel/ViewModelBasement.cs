@@ -14,7 +14,7 @@ namespace QuizManager.ViewModel
     class ViewModelBasement : INotifyPropertyChanged
     {
         
-        public ObservableCollection<ModelDateCollection> DateCollection { get; set; }
+        
 
         #region INotifyPropertyChanged
         // By Mosbæk
@@ -67,6 +67,7 @@ namespace QuizManager.ViewModel
             }
         }
 
+        public ObservableCollection<ModelDateCollection> DateCollection { get; set; }
 
         public ObservableCollection<ModelGroup> BasementGroups
         {
