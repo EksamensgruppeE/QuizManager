@@ -27,6 +27,13 @@ namespace QuizManager.ViewModel
         }
         #endregion
 
+        #region Instancefields
+
+        private ObservableCollection<ModelGroup> _groups;
+        private ModelGroup _selectedGroup;
+
+        #endregion
+
         #region ModelGroupProps
         //By Mosbæk
 
@@ -39,6 +46,33 @@ namespace QuizManager.ViewModel
         public int TableNr { get; set; }
 
         public int NumberOfPayments { get; set; }
+
+        public string AllPayed { get; set; }
+
+        public int NumberOfAttendingParticipants { get; set; }
+        #endregion
+
+        public string Date { get; set; }
+
+
+        #region Properties
+
+        public ModelGroup SelectedGroup
+        {
+            get { return _selectedGroup; }
+            set
+            {
+                _selectedGroup = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        public ObservableCollection<ModelGroup> BasementGroups
+        {
+            get { return _groups; }
+            set { _groups = value; }
+        }
 
         #endregion
 
@@ -53,12 +87,19 @@ namespace QuizManager.ViewModel
 
         public ViewModelBasement()
         {
+
            DateCollection = new ObservableCollection<ModelDateCollection>();
            DateCollection.Add(new ModelDateCollection());
+
+            _groups = new ObservableCollection<ModelGroup>();
+            AddTest();
+            _groups[0].AllPaid = true;
+
         }
         #endregion
 
         #region Methods
+
         //add and remove by Rasmus
 
         public void AddSeat()
@@ -74,7 +115,38 @@ namespace QuizManager.ViewModel
         }
 
         
-#endregion
+
+
+
+
+        #endregion
+
+        public void AddTest()
+        {
+            _groups.Add(new ModelGroup("Russerne", "10203040", 7, 1));
+            _groups.Add(new ModelGroup("StupidTeamName", "20304050", 3, 1));
+            _groups.Add(new ModelGroup("Gede Hviskerne", "30405060", 12, 3));
+        }
+
+        #region Udkommenteret Kode
+
+        //public void MakeGroupList(string date)
+        //{
+        //    if (_groups.Count < ModelEventsBasementSingleton.Instance.BasementModelDateCollection.GetDate(date).Groups
+        //            .Count)
+        //    {
+        //        for (int i = 0;
+        //            i < ModelEventsBasementSingleton.Instance.BasementModelDateCollection.GetDate(date).Groups
+        //                .Count;
+        //            i++)
+        //        {
+        //            Groups.Add(
+        //                ModelEventsBasementSingleton.Instance.BasementModelDateCollection.GetDate(date).Groups[i]);
+        //        }
+        //    }
+        //}
+
+        #endregion
 
     }
 }

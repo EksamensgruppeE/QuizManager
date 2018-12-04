@@ -22,7 +22,6 @@ namespace QuizManager.Model
 
         //Collection over alle grupper
         public ObservableCollection<ModelGroup> Groups { get; set; }
-
         public int TotalParticipants { get; set; }
 
         public int TotalSeats
@@ -36,6 +35,9 @@ namespace QuizManager.Model
         }
 
         public int TotalPayments { get; set; }
+
+
+        #region Statistik
 
         //Dagens Omsætning
         public double TotalRevenue { get; set; }
@@ -55,11 +57,17 @@ namespace QuizManager.Model
         //Totale omsætning af varer solgt med rabat til quiz deltagere
         public double RevenueQuizOffers { get; set; }
 
+        #endregion
+
 
 #endregion
 
-        //skal ha fundet ud af hva vi gør med observablecollection<ModelGroup> groups
-        public ModelDate(string date, string eventType,  int totalParticipants, int totalSeats, int totalPayments, double totalRevenue, double revenue20To24, double revenue24ToClose, double totalRevenueQuiz, double totalRevenueQuizParticipants, double revenueQuizOffers)
+        
+
+        #region Constructor
+
+        public ModelDate(string date, string eventType, int totalParticipants, int totalSeats, int totalPayments, double totalRevenue, double revenue20To24, double revenue24ToClose, double totalRevenueQuiz, double totalRevenueQuizParticipants, double revenueQuizOffers)
+
         {
             Date = date;
             EventType = eventType;
@@ -75,6 +83,7 @@ namespace QuizManager.Model
             RevenueQuizOffers = revenueQuizOffers;
         }
 
+
         
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -84,5 +93,42 @@ namespace QuizManager.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        //Er det ikke bedre at have en lidt mere simpel constructor, som nedenstående? - Laura
+        public ModelDate(string date, string eventType, int totalSeats)
+        {
+            Date = date;
+            EventType = eventType;
+            Groups = new ObservableCollection<ModelGroup>();
+            TotalSeats = totalSeats;
+        }
+
+        #endregion
+
+
+        #region Methods
+
+        public ModelGroup GetGroup(string teamName)
+        {
+            for (int i = 0; i < Groups.Count; i++)
+            {
+                if (teamName == Groups[i].TeamName)
+                {
+                    return Groups[i];
+                }
+            }
+
+            return null;
+        }
+
+        public void AddTest()
+        {
+            Groups.Add(new ModelGroup("Russerne", "10203040", 7, 1));
+            Groups.Add(new ModelGroup("StupidTeamName", "20304050", 3, 1));
+            Groups.Add(new ModelGroup("Gede Hviskerne", "30405060", 12, 3));
+        }
+
+        #endregion
+
     }
 }

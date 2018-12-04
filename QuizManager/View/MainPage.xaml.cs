@@ -73,13 +73,15 @@ namespace QuizManager
                     YouAreHere.Text = "Alpehytten";
                     if (SplitViewMenu.IsPaneOpen) SplitViewMenu.IsPaneOpen = false;
                 }
-                //else if (ShowStatistics.IsSelected)
-                //{
-                //    MainFrame.Navigate(typeof(ViewStatistics));
-                //    YouAreHere.Text = "Statistik: ";
-                //    if (SplitViewMenu.IsPaneOpen) SplitViewMenu.IsPaneOpen = false;
 
-                //}
+                /*else if (ShowStatistics.IsSelected)
+                {
+                    MainFrame.Navigate(typeof(ViewStatistics));
+                    YouAreHere.Text = "Statistik: ";
+                    if (SplitViewMenu.IsPaneOpen) SplitViewMenu.IsPaneOpen = false;
+
+                }*/
+
                 else if (ShowSettings.IsSelected)
                 {
                     MainFrame.Navigate(typeof(ViewSettings));
