@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,54 +19,18 @@
 
     <!--  dqw  -->
     <Grid Background="#354357">
+
+    
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Border BorderBrush="#282b30" BorderThickness="0,0,0,1">
-            <RelativePanel Grid.Row="0">
-                <Image Source="../Assets/Skyline.png" Stretch="None" />
-                <!--<Image
-                    Name="BasementLogo"
-                    Width="100"
-                    Source="../Assets/BasementBarLogo.jpg" />
-                <TextBlock Text="" />
-                <Image
-                    Name="AlpehyttenLogo"
-                    Width="100"
-                    RelativePanel.RightOf="BasementLogo"
-                    Source="../Assets/AlpehyttenLogo.jpg" />-->
 
-                <!--  QuizMaster!  -->
-                <TextBlock
-                    Name="Name"
-                    Margin="0,0,50,0"
-                    FontFamily="Segoe Print"
-                    FontSize="50"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    RelativePanel.AlignRightWithPanel="True"
-                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                    Text="QuizManager" />
-                <!--<Button
-                    x:Name="GoBackButton2"
-                    Margin="0,0,0,0"
-                    Background="{x:Null}"
-                    Click="GoBackButtonClick"
-                    Content="&#xE72B;"
-                    FontFamily="Segoe MDL2 Assets"
-                    FontSize="29"
-                    Foreground="White"
-                    RelativePanel.AlignBottomWithPanel="True"
-                    Style="{StaticResource StandardMenuButton}" />-->
-            </RelativePanel>
-        </Border>
         <RelativePanel
-            Grid.Row="1"
-            Background="#323a45"
-            BorderBrush="#282b30"
-            BorderThickness="0,0,0,1">
+            Background="Gray"
+            BorderBrush="Bisque"
+            BorderThickness="0,0,0,3">
 
             <!--  Menu Open/Close  -->
             <Button
@@ -74,10 +39,8 @@
                 Click="MenuButtonClick"
                 Content="&#xe700;"
                 FontFamily="Segoe MDL2 Assets"
-                FontSize="29"
-                Foreground="White"
-                Style="{StaticResource StandardMenuButton}" />
-            <!--  Style: from Dictionary.xaml  -->
+                FontSize="28"
+                Foreground="White" />
 
             <!--  GoBack Button  -->
             <Button
@@ -87,20 +50,10 @@
                 Click="GoBackButtonClick"
                 Content="&#xE72B;"
                 FontFamily="Segoe MDL2 Assets"
-                FontSize="29"
+                FontSize="28"
                 Foreground="White"
-                RelativePanel.RightOf="MenuOpen"
-                Style="{StaticResource StandardMenuButton}" />
-            <!--<TextBlock
-                Foreground="White"
-                RelativePanel.AlignVerticalCenterWithPanel="True"
-                RelativePanel.RightOf="GoBackButton"
-                Text="Tilbage"
-                FontSize="18"/>-->
+                RelativePanel.RightOf="MenuOpen" />
 
-
-            <!--  GoForward Button  -->
-            <!--
             <Button
                 x:Name="GoForwardButton"
                 Margin="15,0,0,0"
@@ -108,12 +61,15 @@
                 Click="GoForwardButtonClick"
                 Content="&#xE72A;"
                 FontFamily="Segoe MDL2 Assets"
-                FontSize="29"
+                FontSize="28"
                 Foreground="White"
-                RelativePanel.RightOf="GoBackButton"
-                Style="{StaticResource StandardMenuButton}" />-->
+                RelativePanel.RightOf="GoBackButton" />
 
-
+            <!--  THEGAME  -->
+            <TextBlock
+                FontSize="30"
+                Foreground="White"
+                RelativePanel.AlignHorizontalCenterWithPanel="True" />
 
             <!--  Search Button  -->
             <Button
@@ -121,11 +77,10 @@
                 Background="{x:Null}"
                 Content="&#xE71E;"
                 FontFamily="Segoe MDL2 Assets"
-                FontSize="29"
+                FontSize="28"
                 FontWeight="Bold"
                 Foreground="White"
-                RelativePanel.AlignRightWithPanel="True"
-                Style="{StaticResource StandardMenuButton}">
+                RelativePanel.AlignRightWithPanel="True">
                 <Button.Flyout>
                     <Flyout>
                         <StackPanel>
@@ -133,8 +88,7 @@
                             <Button
                                 Width="200"
                                 Background="{x:Null}"
-                                Content="Ok"
-                                Style="{StaticResource StandardMenuButton}" />
+                                Content="Ok" />
                         </StackPanel>
                     </Flyout>
                 </Button.Flyout>
@@ -144,118 +98,100 @@
         <!--  SplitView Start  -->
         <SplitView
             x:Name="SplitViewMenu"
-            Grid.Row="2"
-            BorderBrush="#282b30"
-            BorderThickness="1"
+            Grid.Row="1"
             CompactPaneLength="50"
             DisplayMode="CompactOverlay"
             IsPaneOpen="False"
             OpenPaneLength="250">
             <SplitView.Pane>
-                <Border BorderBrush="#282b30" BorderThickness="0,0,1,0">
-                    <ListBox
-                        Name="IconsListBox"
-                        Background="#323a45"
-                        SelectedItem="BasementButton"
-                        SelectionChanged="IconsListBox_SelectionChanged"
-                        SelectionMode="Single">
-
-                        <!--  ListBox items  -->
-                        <ListBoxItem Name="BasementButton">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    FontFamily="Segoe MDL2 Assets"
-                                    FontSize="25"
-                                    Foreground="#f7c07f"
-                                    Text="&#xE8FA;" />
-                                <TextBlock
-                                    Margin="20,0,0,0"
-                                    FontSize="20"
-                                    Foreground="White"
-                                    Text="Basement" />
-
-                            </StackPanel>
-                        </ListBoxItem>
-                        <ListBoxItem Name="AlpehyttenButton">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    FontFamily="Segoe MDL2 Assets"
-                                    FontSize="25"
-                                    Foreground="#dab250"
-                                    Text="&#xE716;" />
-                                <TextBlock
-                                    Margin="20,0,0,0"
-                                    FontSize="20"
-                                    Foreground="White"
-                                    Text="Alpehytten" />
-
-                            </StackPanel>
-                        </ListBoxItem>
-                        <ListBoxItem Name="ShowStatistics">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    FontFamily="Segoe MDL2 Assets"
-                                    FontSize="25"
-                                    Foreground="#67cd9a"
-                                    Text="&#xE9D2;" />
-                                <TextBlock
-                                    Margin="20,0,0,0"
-                                    FontSize="20"
-                                    Foreground="White"
-                                    Text="Statistik" />
-
-                            </StackPanel>
-                        </ListBoxItem>
 
 
+                <!--  Mangler SelectionChanged="IconsListBox_SelectionChanged"  -->
 
-                        <ListBoxItem Name="ShowSettings">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    FontFamily="Segoe MDL2 Assets"
-                                    FontSize="25"
-                                    Foreground="#67a8cd"
-                                    Text="&#xE713;" />
-                                <TextBlock
-                                    Margin="20,0,0,0"
-                                    FontSize="20"
-                                    Foreground="White"
-                                    Text="Indstillinger" />
+                <ListBox
+                    Name="IconsListBox"
+                    Background="Gray"
+                    SelectedItem="BasementButton"
+                    SelectionChanged="IconsListBox_SelectionChanged"
+                    SelectionMode="Single">
+                    <!--  ListBox items  -->
 
-                            </StackPanel>
-                        </ListBoxItem>
-                    </ListBox>
-                </Border>
+                    <ListBoxItem Name="BasementButton">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="25"
+                                Foreground="White"
+                                Text="&#xE8FA;" />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                FontSize="20"
+                                Foreground="White"
+                                Text="Basement" />
+
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="AlpehyttenButton">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="25"
+                                Foreground="White"
+                                Text="&#xE716;" />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                FontSize="20"
+                                Foreground="White"
+                                Text="Alpehytten" />
+
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="ShowStatistics">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="25"
+                                Foreground="White"
+                                Text="&#xE9D2;" />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                FontSize="20"
+                                Foreground="White"
+                                Text="Statistik" />
+
+                        </StackPanel>
+                    </ListBoxItem>
+
+
+
+                    <ListBoxItem Name="ShowSettings">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="25"
+                                Foreground="White"
+                                Text="&#xE713;" />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                FontSize="20"
+                                Foreground="White"
+                                Text="Indstillinger" />
+
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
             </SplitView.Pane>
-
 
             <!--  SplitView Content Begins  -->
 
             <SplitView.Content>
                 <StackPanel>
-                    <StackPanel
-                        Padding="4"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        BorderBrush="#282b30"
-                        BorderThickness="0,0,0,1"
-                        Orientation="Horizontal">
-                        <TextBlock
-                            Name="Message"
-                            Margin="40,0,0,0"
-                            FontSize="15"
-                            Foreground="White"
-                            Text="Du er her: " />
-                        <TextBlock
-                            Name="YouAreHere"
-                            Margin="15,0,0,0"
-                            FontSize="15"
-                            FontWeight="Bold"
-                            Foreground="White"
-                            Text="Basement" />
-
-                    </StackPanel>
-                    <!--  Content Frame  -->
+                    <TextBlock
+                        Name="YouAreHere"
+                        Margin="40,0,0,0"
+                        FontSize="15"
+                        Foreground="White"
+                        Text="Basement" />
                     <Frame Name="MainFrame" />
                 </StackPanel>
             </SplitView.Content>

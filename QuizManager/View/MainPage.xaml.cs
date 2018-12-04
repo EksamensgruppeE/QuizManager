@@ -27,13 +27,12 @@ namespace QuizManager
         {
             this.InitializeComponent();
             // Load Main.xaml in the main frame of MainPage.xaml
-            MainFrame.Navigate(typeof(ViewBasementDate));
-            YouAreHere.Text = "Basement";
+            MainFrame.Navigate(typeof(ViewBasement));
 
         }
 
 
-        //Set SplitViewMenu property to what it currently is not
+        //Set SplitViewMenu to what it currently is not
         private void MenuButtonClick(object sender, RoutedEventArgs e)
         {
             SplitViewMenu.IsPaneOpen = !SplitViewMenu.IsPaneOpen;
@@ -64,9 +63,9 @@ namespace QuizManager
             {
                 if (BasementButton.IsSelected)
                 {
-                    MainFrame.Navigate(typeof(ViewBasementDate));
+                    MainFrame.Navigate(typeof(ViewBasement));
                     YouAreHere.Text = "Basement";
-                    if (SplitViewMenu.IsPaneOpen) SplitViewMenu.IsPaneOpen = false;
+
                 }
                 else if (AlpehyttenButton.IsSelected)
                 {
@@ -74,13 +73,15 @@ namespace QuizManager
                     YouAreHere.Text = "Alpehytten";
                     if (SplitViewMenu.IsPaneOpen) SplitViewMenu.IsPaneOpen = false;
                 }
-                else if (ShowStatistics.IsSelected)
+
+                /*else if (ShowStatistics.IsSelected)
                 {
                     MainFrame.Navigate(typeof(ViewStatistics));
-                    YouAreHere.Text = "Statistik";
+                    YouAreHere.Text = "Statistik: ";
                     if (SplitViewMenu.IsPaneOpen) SplitViewMenu.IsPaneOpen = false;
 
-                }
+                }*/
+
                 else if (ShowSettings.IsSelected)
                 {
                     MainFrame.Navigate(typeof(ViewSettings));
