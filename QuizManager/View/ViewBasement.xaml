@@ -30,8 +30,8 @@
 
 
         <!--  GridView Groups  Laura  -->
-        <StackPanel Grid.Row="0" Grid.Column="1">
-            <GridView ItemsSource="{Binding BasementGroups}" SelectedItem="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <StackPanel x:Name="Hold_Grid" Grid.Row="0" Grid.Column="1">
+            <GridView x:Name="Holdnavn_Grid" ItemsSource="{Binding BasementGroups}" SelectedItem="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <Border
@@ -62,8 +62,8 @@
         </StackPanel>
 
         <!--  Edit groups - Laura  -->
-        <StackPanel Grid.Row="0" Grid.Column="2">
-            <StackPanel Margin="0,0,0,20" Orientation="Horizontal">
+        <StackPanel x:Name="Hold_Info" Grid.Row="0" Grid.Column="2">
+            <StackPanel x:Name="Holdnavn" Margin="0,0,0,20" Orientation="Horizontal">
                 <TextBlock
                     VerticalAlignment="Center"
                     FontSize="14"
@@ -74,11 +74,11 @@
                     FontSize="20"
                     Text="{Binding SelectedGroup.TeamName}" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel x:Name="Telefon_Nummer" Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Text="Telefon nummer:" />
                 <TextBlock Margin="5,0,0,0" Text="{Binding SelectedGroup.PhoneNumber}" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel x:Name="Antal_Deltager" Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Text="Antal deltagere: " />
                 <Button Margin="10,0,0,0" Content="-">
                     <Interactivity:Interaction.Behaviors>
@@ -100,7 +100,7 @@
                     </Interactivity:Interaction.Behaviors>
                 </Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel x:Name="Fremmødte" Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Text="Fremmødte: " />
                 <Button Margin="10,0,0,0" Content="-">
                     <Interactivity:Interaction.Behaviors>
@@ -122,11 +122,11 @@
                     </Interactivity:Interaction.Behaviors>
                 </Button>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel x:Name="Bord_Nummer" Orientation="Horizontal">
                 <TextBlock Text="Bord nr # " />
                 <TextBlock Text="{Binding SelectedGroup.TableNr}" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel x:Name="Betalt" Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Text="Betalt: " />
                 <Button Margin="10,0,0,0" Content="-">
                     <Interactivity:Interaction.Behaviors>
@@ -151,11 +151,11 @@
         </StackPanel>
 
         <!--  Rasmus  -->
-        <StackPanel
+        <StackPanel x:Name="Event_Plads"
             Grid.Row="1"
             Grid.Column="2"
             Orientation="Horizontal">
-            <TextBlock
+            <TextBlock x:Name="Antal_Pladser"
                 Width="70"
                 Height="75"
                 HorizontalAlignment="Left"
@@ -165,7 +165,7 @@
                 Foreground="#FF050589"
                 Text="{Binding DateCollection[0].Dates[0].TotalSeats, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 TextWrapping="Wrap" />
-            <Button
+            <Button x:Name="Add_Seat"
                 Width="150"
                 Height="50"
                 HorizontalAlignment="Left"
@@ -178,7 +178,7 @@
                 </Interactivity:Interaction.Behaviors>
 
             </Button>
-            <Button
+            <Button x:Name="Subtract_Seat"
                 Width="150"
                 Height="50"
                 HorizontalAlignment="Left"
