@@ -13,6 +13,9 @@ namespace QuizManager.ViewModel
 {
     class ViewModelBasement : INotifyPropertyChanged
     {
+        
+        public ObservableCollection<ModelDateCollection> DateCollection { get; set; }
+
         #region INotifyPropertyChanged
         // By Mosbæk
         public event PropertyChangedEventHandler PropertyChanged;
@@ -73,16 +76,48 @@ namespace QuizManager.ViewModel
 
         #endregion
 
+        #region ModelDateProps
+
+        public ModelDate SelectedItem { get; set; }
+
+
+        #endregion
+
         #region Empty Constructor
+
         public ViewModelBasement()
         {
+
+           DateCollection = new ObservableCollection<ModelDateCollection>();
+           DateCollection.Add(new ModelDateCollection());
+
             _groups = new ObservableCollection<ModelGroup>();
             AddTest();
             _groups[0].AllPaid = true;
+
         }
         #endregion
 
         #region Methods
+
+        //add and remove by Rasmus
+
+        public void AddSeat()
+        {
+            //skal ha fat i TotalSeats i ModelDate
+            SelectedItem.TotalSeats++;
+        }
+
+        public void SubtractSeat()
+        {
+            //skal ha fat i TotalSeats i ModelDate
+            SelectedItem.TotalSeats--;
+        }
+
+        
+
+
+
 
         #endregion
 
@@ -112,5 +147,6 @@ namespace QuizManager.ViewModel
         //}
 
         #endregion
+
     }
 }

@@ -9,7 +9,8 @@ namespace QuizManager.Model
 {
     class ModelDateCollection
     {
-
+    
+      
         #region Properties
 
         //Collection til at store på alle modeldates. Bootleg Database
@@ -19,9 +20,11 @@ namespace QuizManager.Model
 
         #region Constructor
 
-        public ModelDateCollection()
+       public ModelDateCollection()
         {
             Dates = new ObservableCollection<ModelDate>();
+            //test collection til at teste TotalSeats. virker dog ikke med collectionen af modelgroup
+            Dates.Add(new ModelDate("21 january", "Quiz Night",  52,50,5000,1235,55,54,545,4545,4549));
         }
 
         #endregion
@@ -43,6 +46,7 @@ namespace QuizManager.Model
         {
             Dates.Add(modelDate);
         }
+
 
 
         public void AddTest()

@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using QuizManager.Annotations;
 
 namespace QuizManager.Model
 {
-    class ModelDate
+    class ModelDate : INotifyPropertyChanged
     {
+        private int _totalSeats;
 
         #region Properties
         //Undersøg for relevant datatype
@@ -20,7 +24,15 @@ namespace QuizManager.Model
         public ObservableCollection<ModelGroup> Groups { get; set; }
         public int TotalParticipants { get; set; }
 
-        public int TotalSeats { get; set; }
+        public int TotalSeats
+        {
+            get => _totalSeats;
+            set
+            {
+                _totalSeats = value; 
+                OnPropertyChanged();
+            }
+        }
 
         public int TotalPayments { get; set; }
 
@@ -50,9 +62,12 @@ namespace QuizManager.Model
 
 #endregion
 
+        
+
         #region Constructor
 
         public ModelDate(string date, string eventType, int totalParticipants, int totalSeats, int totalPayments, double totalRevenue, double revenue20To24, double revenue24ToClose, double totalRevenueQuiz, double totalRevenueQuizParticipants, double revenueQuizOffers)
+
         {
             Date = date;
             EventType = eventType;
@@ -66,6 +81,17 @@ namespace QuizManager.Model
             TotalRevenueQuiz = totalRevenueQuiz;
             TotalRevenueQuizParticipants = totalRevenueQuizParticipants;
             RevenueQuizOffers = revenueQuizOffers;
+        }
+
+
+        
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         //Er det ikke bedre at have en lidt mere simpel constructor, som nedenstående? - Laura
@@ -103,5 +129,6 @@ namespace QuizManager.Model
         }
 
         #endregion
+
     }
 }
