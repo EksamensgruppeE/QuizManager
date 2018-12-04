@@ -6,24 +6,35 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Security.Cryptography.Core;
 using QuizManager.Annotations;
 
 namespace QuizManager.Model
 {
     class ModelDate : INotifyPropertyChanged
     {
+
+        #region Instance Fields
+        
         private int _totalSeats;
 
+        #endregion
+
+
         #region Properties
-        //Undersøg for relevant datatype
+
+        //Undersøges for relevant datatype
         public string Date { get; set; }
 
         public string EventType { get; set; }
 
-        //Collection over alle grupper
+        //Collection af grupper
         public ObservableCollection<ModelGroup> Groups { get; set; }
+
+        //Deltagere i alt
         public int TotalParticipants { get; set; }
 
+        //antal stole i alt.
         public int TotalSeats
         {
             get => _totalSeats;
@@ -34,6 +45,7 @@ namespace QuizManager.Model
             }
         }
 
+        //betaling i alt.
         public int TotalPayments { get; set; }
 
 
@@ -61,10 +73,14 @@ namespace QuizManager.Model
 
 
 #endregion
-
         
 
         #region Constructor
+
+        //denne constructor initialisere properties med det input den nu får, 
+        //samt opretter en observable collection af ModelGroups.
+
+        //skal måske erstattes af nedenstående constructor
 
         public ModelDate(string date, string eventType, int totalParticipants, int totalSeats, int totalPayments, double totalRevenue, double revenue20To24, double revenue24ToClose, double totalRevenueQuiz, double totalRevenueQuizParticipants, double revenueQuizOffers)
 
@@ -83,17 +99,7 @@ namespace QuizManager.Model
             RevenueQuizOffers = revenueQuizOffers;
         }
 
-
         
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         //Er det ikke bedre at have en lidt mere simpel constructor, som nedenstående? - Laura
         public ModelDate(string date, string eventType, int totalSeats)
         {
@@ -108,6 +114,7 @@ namespace QuizManager.Model
 
         #region Methods
 
+        //metode der gennemløber Groups Collectionen for det specificerede teamName.
         public ModelGroup GetGroup(string teamName)
         {
             for (int i = 0; i < Groups.Count; i++)
@@ -121,6 +128,7 @@ namespace QuizManager.Model
             return null;
         }
 
+        //står også i ViewModelBasement. Skal den slettes?
         public void AddTest()
         {
             Groups.Add(new ModelGroup("Russerne", "10203040", 7, 1));
@@ -130,5 +138,17 @@ namespace QuizManager.Model
 
         #endregion
 
+
+        #region INotifyPropertyChanged
+        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 }
