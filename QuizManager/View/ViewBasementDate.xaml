@@ -8,6 +8,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Grid Background="DarkOliveGreen" />
+    <Grid Background="DarkOliveGreen">
+
+
+
+
+
+   </Grid>
+
 
 </Page>

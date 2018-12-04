@@ -27,7 +27,7 @@ namespace QuizManager
         {
             this.InitializeComponent();
             // Load Main.xaml in the main frame of MainPage.xaml
-            MainFrame.Navigate(typeof(ViewBasementDate));
+            MainFrame.Navigate(typeof(ViewBasement));
 
         }
 
@@ -63,7 +63,7 @@ namespace QuizManager
             {
                 if (BasementButton.IsSelected)
                 {
-                    MainFrame.Navigate(typeof(ViewBasementDate));
+                    MainFrame.Navigate(typeof(ViewBasement));
                     YouAreHere.Text = "Basement";
 
                 }
@@ -73,13 +73,15 @@ namespace QuizManager
                     YouAreHere.Text = "Alpehytten";
                     if (SplitViewMenu.IsPaneOpen) SplitViewMenu.IsPaneOpen = false;
                 }
-                else if (ShowStatistics.IsSelected)
+
+                /*else if (ShowStatistics.IsSelected)
                 {
                     MainFrame.Navigate(typeof(ViewStatistics));
                     YouAreHere.Text = "Statistik: ";
                     if (SplitViewMenu.IsPaneOpen) SplitViewMenu.IsPaneOpen = false;
 
-                }
+                }*/
+
                 else if (ShowSettings.IsSelected)
                 {
                     MainFrame.Navigate(typeof(ViewSettings));

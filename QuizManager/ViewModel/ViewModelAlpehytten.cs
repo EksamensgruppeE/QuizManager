@@ -8,5 +8,6 @@ namespace QuizManager.ViewModel
 {
     class ViewModelAlpehytten
     {
+        
     }
 }
