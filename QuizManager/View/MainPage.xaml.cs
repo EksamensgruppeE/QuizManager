@@ -27,7 +27,7 @@ namespace QuizManager
         {
             this.InitializeComponent();
             // Load Main.xaml in the main frame of MainPage.xaml
-            MainFrame.Navigate(typeof(ViewBasementDate));
+            MainFrame.Navigate(typeof(ViewBasement));
 
         }
 

@@ -44,7 +44,7 @@ namespace QuizManager.ViewModel
 
         #region ModelDateProps
 
-
+        public ModelDate SelectedItem { get; set; }
 
 
         #endregion
@@ -53,7 +53,7 @@ namespace QuizManager.ViewModel
 
         public ViewModelBasement()
         {
-            DateCollection = new ObservableCollection<ModelDateCollection>();
+           DateCollection = new ObservableCollection<ModelDateCollection>();
            DateCollection.Add(new ModelDateCollection());
         }
         #endregion
@@ -64,13 +64,13 @@ namespace QuizManager.ViewModel
         public void AddSeat()
         {
             //skal ha fat i TotalSeats i ModelDate
-            
+            SelectedItem.TotalSeats++;
         }
 
-        public void RemoveSeat()
+        public void SubtractSeat()
         {
             //skal ha fat i TotalSeats i ModelDate
-
+            SelectedItem.TotalSeats--;
         }
 
         

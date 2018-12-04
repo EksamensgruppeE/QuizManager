@@ -17,7 +17,7 @@ namespace QuizManager.Model
         {
             Dates = new ObservableCollection<ModelDate>();
             //test collection til at teste TotalSeats. virker dog ikke med collectionen af modelgroup
-            Dates.Add(new ModelDate("21 january", "Quiz Night", new ObservableCollection<ModelGroup>(),  52,50,5000,1235,55,54,545,4545,4549));
+            Dates.Add(new ModelDate("21 january", "Quiz Night",  52,50,5000,1235,55,54,545,4545,4549));
         }
 
     }

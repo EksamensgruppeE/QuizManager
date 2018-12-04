@@ -18,19 +18,19 @@
 
 
     <Grid Background="CadetBlue">
-        <TextBlock HorizontalAlignment="Left" Height="175" Margin="605,470,0,0" TextWrapping="Wrap" Text="{Binding DateCollection2[0].Dates[0].TotalSeats, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="495"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="105" Margin="425,710,0,0" VerticalAlignment="Top" Width="400">
+        <TextBlock HorizontalAlignment="Left" Height="175" Margin="525,325,0,0" TextWrapping="Wrap" Text="{Binding DateCollection[0].Dates[0].TotalSeats, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="495" FontSize="48"/>
+        <Button Content="Add Seat" HorizontalAlignment="Left" Height="105" Margin="405,605,0,0" VerticalAlignment="Top" Width="400">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
-                    <Core:CallMethodAction/>
+                    <Core:CallMethodAction TargetObject="{ Binding Mode=OneWay }" MethodName="AddSeat" />
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
 
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Height="105" Margin="870,710,0,0" VerticalAlignment="Top" Width="400">
+        <Button Content="Subtract Seat" HorizontalAlignment="Left" Height="105" Margin="880,605,0,0" VerticalAlignment="Top" Width="400">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
-                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="AddSeat"/>
+                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="SubtractSeat"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
 

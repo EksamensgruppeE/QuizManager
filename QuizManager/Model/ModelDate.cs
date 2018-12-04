@@ -59,11 +59,11 @@ namespace QuizManager.Model
 #endregion
 
         //skal ha fundet ud af hva vi gør med observablecollection<ModelGroup> groups
-        public ModelDate(string date, string eventType, ObservableCollection<ModelGroup> groups, int totalParticipants, int totalSeats, int totalPayments, double totalRevenue, double revenue20To24, double revenue24ToClose, double totalRevenueQuiz, double totalRevenueQuizParticipants, double revenueQuizOffers)
+        public ModelDate(string date, string eventType,  int totalParticipants, int totalSeats, int totalPayments, double totalRevenue, double revenue20To24, double revenue24ToClose, double totalRevenueQuiz, double totalRevenueQuizParticipants, double revenueQuizOffers)
         {
             Date = date;
             EventType = eventType;
-            Groups = groups;
+            Groups = new ObservableCollection<ModelGroup>();
             TotalParticipants = totalParticipants;
             TotalSeats = totalSeats;
             TotalPayments = totalPayments;
@@ -75,10 +75,7 @@ namespace QuizManager.Model
             RevenueQuizOffers = revenueQuizOffers;
         }
 
-        public void Add2()
-        {
-            TotalSeats++;
-        }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
