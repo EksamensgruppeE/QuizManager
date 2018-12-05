@@ -20,16 +20,17 @@ namespace QuizManager.Model
 
         //Collection af ModelDates
 
-        #region Props
-
+      
+        //vores liste af datoer for Basement.
         public ObservableCollection<ModelDate> BasementDates
         {
             get { return _dates; }
             set { _dates = value; }
         }
 
-
-
+        
+        //property, hvis get metode kalder vores private constructor, gennem et if statement der sikrer at der kun skabes
+        //1 instance af classen. 
         public static ModelEventsBasementSingleton Instance
         {
             get
@@ -40,12 +41,14 @@ namespace QuizManager.Model
             }
         }
 
-        #endregion
+   
 
         #endregion
 
         #region Private Constructor
 
+        //her skaber vi en observable Collection af ModelDate og tilføjer test objekter. 
+        //da dette er en singleton kan dette kun ske 1 gang! #Genius 
         private ModelEventsBasementSingleton()
         {
             _dates = new ObservableCollection<ModelDate>();
@@ -54,11 +57,14 @@ namespace QuizManager.Model
 
         #endregion
 
+        //metode der tilføjer datoer til Observable Collection
         public void AddDate(ModelDate date)
         {
             _dates.Add(date);
         }
 
+        //metode der gennemgår observable Collectionen for et match med dens givne streng. 
+        //findes den fjernes den fra listen. 
         public void RemoveDate(string date)
         {
             for (int i = 0; i < _dates.Count; i++)
@@ -66,6 +72,7 @@ namespace QuizManager.Model
                 if (date == _dates[i].Date) _dates.RemoveAt(i);
             }
         }
+
 
         public void AddTest()
         {

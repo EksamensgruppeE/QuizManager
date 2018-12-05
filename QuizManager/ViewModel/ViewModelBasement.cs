@@ -124,6 +124,12 @@ namespace QuizManager.ViewModel
             SelectedDate.TotalSeats--;
         }
 
+        //tilføje nye grupper via GUI'en
+        public void AddGroup()
+        {
+            SelectedDate.AddGroup(new ModelGroup(TeamName, PhoneNumber, Participants, TableNr));
+        }
+
         
         #endregion
 
