@@ -17,6 +17,7 @@ namespace QuizManager.Model
         #region Instance Fields
         
         private int _totalSeats;
+        private ObservableCollection<ModelGroup> _groups;
 
         #endregion
 
@@ -29,7 +30,15 @@ namespace QuizManager.Model
         public string EventType { get; set; }
 
         //Collection af grupper
-        public ObservableCollection<ModelGroup> Groups { get; set; }
+        public ObservableCollection<ModelGroup> Groups
+        {
+            get { return _groups; }
+            set
+            {
+                _groups = value;
+                OnPropertyChanged();
+            }
+        }
 
         //Deltagere i alt
         public int TotalParticipants { get; set; }
@@ -72,7 +81,7 @@ namespace QuizManager.Model
         #endregion
 
 
-#endregion
+        #endregion
         
 
         #region Constructor
@@ -131,6 +140,14 @@ namespace QuizManager.Model
         public void AddGroup(ModelGroup group)
         {
            Groups.Add(group);
+        }
+
+        public void RemoveGroup(string name)
+        {
+            for (int i = 0; i < Groups.Count; i++)
+            {
+                if (Groups[i].TeamName == name) Groups.RemoveAt(i);
+            }
         }
 
 

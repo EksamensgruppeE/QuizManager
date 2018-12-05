@@ -99,18 +99,14 @@ namespace QuizManager.ViewModel
             }
         }
 
-        //observable collection af ModelGroups
-
-
         #endregion
 
 
-        #region Empty Constructor
+        #region Constructor
 
         public ViewModelBasement()
         {
             _dates = ModelEventsBasementSingleton.Instance.BasementDates;
-            
 
 
         }
@@ -137,6 +133,12 @@ namespace QuizManager.ViewModel
         public void AddGroup()
         {
             SelectedDate.AddGroup(new ModelGroup(TeamName, PhoneNumber, Participants, TableNr));
+        }
+
+        //fjernelse af grupper via GUI'en
+        public void RemoveGroup()
+        {
+            SelectedDate.RemoveGroup(SelectedGroup.TeamName);
         }
 
         
