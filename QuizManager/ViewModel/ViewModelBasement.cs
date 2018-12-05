@@ -72,6 +72,7 @@ namespace QuizManager.ViewModel
             {
                 _selectedDate = value;
                 OnPropertyChanged();
+                CheckTotalParticipants();
             }
         }
 
