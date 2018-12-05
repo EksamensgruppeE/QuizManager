@@ -78,18 +78,31 @@ namespace QuizManager.ViewModel
             }
         }
 
+
+        // To get access to Dates collection in view, this is saved in BasementDates through the singleton
+        public ObservableCollection<ModelDate> Dates
+        {
+            get { return _dates; }
+            set
+            {
+                _dates = value;
+                OnPropertyChanged();
+            }
+        }
+
         //observable collection af ModelGroups
-       
+
 
         #endregion
 
-       
+
         #region Empty Constructor
 
         public ViewModelBasement()
         {
             _dates = ModelEventsBasementSingleton.Instance.BasementDates;
-           
+            
+
 
         }
         #endregion
