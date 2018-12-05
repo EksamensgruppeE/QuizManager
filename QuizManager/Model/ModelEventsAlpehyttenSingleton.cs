@@ -8,10 +8,6 @@ namespace QuizManager.Model
 {
     class ModelEventsAlpehyttenSingleton
     {
-        //Collection af ModelDates
-        public ModelDateCollection AlpehyttenDates { get; set; }
-
-
 
     }
 }

@@ -16,6 +16,7 @@ namespace QuizManager.Model
         private int _participants;
         private int _numberOfPayments;
         private int _numberOfAttendingParticipants;
+        private bool _allAttending;
 
 
         #region Properties
@@ -66,6 +67,16 @@ namespace QuizManager.Model
                 return _allPaid;
             }
             set { _allPaid = value; }
+        }
+
+        public bool AllAttending
+        {
+            get
+            {
+                if (NumberOfAttendingParticipants == Participants) _allAttending = true;
+                else _allAttending = false;
+                return _allAttending;
+            }
         }
 
         #endregion
