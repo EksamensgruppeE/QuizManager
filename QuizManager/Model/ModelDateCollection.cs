@@ -54,7 +54,7 @@ namespace QuizManager.Model
         }
 
 
-        //
+        //her tilføjes test objekt til collection af ModelDates
         public void AddTest()
         {
             Dates.Add(new ModelDate("29/11/18", "Quiz", 38));
