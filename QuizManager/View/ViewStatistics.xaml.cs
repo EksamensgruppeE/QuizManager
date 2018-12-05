@@ -26,5 +26,14 @@ namespace QuizManager.View
         {
             this.InitializeComponent();
         }
+
+        
+
+
+
+
+
+
+
     }
 }
