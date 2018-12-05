@@ -44,7 +44,6 @@ namespace QuizManager.Model
 
         #endregion
 
-
         #region Private Constructor
 
         private ModelEventsBasementSingleton()

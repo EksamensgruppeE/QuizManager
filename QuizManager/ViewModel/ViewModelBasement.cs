@@ -30,7 +30,7 @@ namespace QuizManager.ViewModel
         #region Instancefields
         
         //disse 2 felter tilhører tilsvarende properties i Properties Tabben
-        private ObservableCollection<ModelGroup> _groups;
+        
         private ObservableCollection<ModelDate> _dates;
         private ModelGroup _selectedGroup;
 
@@ -79,11 +79,7 @@ namespace QuizManager.ViewModel
         }
 
         //observable collection af ModelGroups
-        public ObservableCollection<ModelGroup> BasementGroups
-        {
-            get { return _groups; }
-            set { _groups = value; }
-        }
+       
 
         #endregion
 
@@ -93,7 +89,7 @@ namespace QuizManager.ViewModel
         public ViewModelBasement()
         {
             _dates = ModelEventsBasementSingleton.Instance.BasementDates;
-            _groups = SelectedDate.Groups;
+           
 
         }
         #endregion
