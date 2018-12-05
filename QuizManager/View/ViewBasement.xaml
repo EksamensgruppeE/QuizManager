@@ -23,13 +23,15 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
+            
+            
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.RowSpan="2">
-            <ListView ItemsSource="{Binding Dates}" SelectedItem="{Binding SelectedDate}">
+            <ListView ItemsSource="{Binding Dates}" SelectedItem="{Binding SelectedDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel
@@ -51,7 +53,7 @@
       
 
         <StackPanel x:Name="Hold_Grid" Grid.Row="0" Grid.Column="1">
-            <GridView x:Name="Holdnavn_Grid" ItemsSource="{Binding SelectedDate.Groups}" SelectedItem="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <GridView x:Name="Holdnavn_Grid" ItemsSource="{Binding SelectedDate.Groups, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
                 <GridView.ItemTemplate>
                     <DataTemplate>
@@ -221,7 +223,7 @@
                 FocusVisualPrimaryBrush="#FF9B0A0A"
                 FontSize="48"
                 Foreground="#FF050589"
-                Text="{Binding DateCollection[0].Dates[0].TotalSeats, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding SelectedDate.TotalSeats}"
                 TextWrapping="Wrap" />
             <Button
                 x:Name="Add_Seat"
