@@ -87,7 +87,6 @@ namespace QuizManager.ViewModel
             }
         }
 
-
         // To get access to Dates collection in view, this is saved in BasementDates through the singleton
         public ObservableCollection<ModelDate> Dates
         {
@@ -99,12 +98,8 @@ namespace QuizManager.ViewModel
             }
         }
 
-        //observable collection af ModelGroups
-
-
         #endregion
-
-
+        
         #region Empty Constructor
 
         public ViewModelBasement()
@@ -152,6 +147,7 @@ namespace QuizManager.ViewModel
         }
         #endregion
 
+        
 
     }
 }
