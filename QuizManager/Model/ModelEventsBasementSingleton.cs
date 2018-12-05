@@ -85,6 +85,14 @@ namespace QuizManager.Model
             BasementDates[1].AddGroup(new ModelGroup("TeamOne", "50607080", 5, 2));
             BasementDates[1].AddGroup(new ModelGroup("Fuck This", "60607080", 6, 4));
             BasementDates[1].AddGroup(new ModelGroup("Team Twio", "50607080", 8, 5));
+
+            BasementDates[0].Revenue20To24 = 9500;
+            BasementDates[0].Revenue24ToClose = 9800;
+            BasementDates[0].RevenueQuizOffers = 5000;
+            BasementDates[0].TotalRevenue = 5600;
+            BasementDates[0].TotalRevenueQuizParticipants = 4500;
+            BasementDates[0].TotalRevenueQuiz = 3500;
+
         }
     }
 }

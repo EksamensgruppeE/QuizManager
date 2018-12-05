@@ -72,6 +72,7 @@ namespace QuizManager.ViewModel
             {
                 _selectedDate = value;
                 OnPropertyChanged();
+                CheckTotalParticipants();
             }
         }
 
@@ -87,7 +88,6 @@ namespace QuizManager.ViewModel
             }
         }
 
-
         // To get access to Dates collection in view, this is saved in BasementDates through the singleton
         public ObservableCollection<ModelDate> Dates
         {
@@ -102,7 +102,12 @@ namespace QuizManager.ViewModel
         #endregion
 
 
-        #region Constructor
+
+        
+
+        
+        #region Empty Constructor
+
 
         public ViewModelBasement()
         {
@@ -129,21 +134,35 @@ namespace QuizManager.ViewModel
             SelectedDate.TotalSeats--;
         }
 
-        //tilføje nye grupper via GUI'en
+        //tilføje nye grupper via GUI'en, samt opdatere TotalParticipants
         public void AddGroup()
         {
             SelectedDate.AddGroup(new ModelGroup(TeamName, PhoneNumber, Participants, TableNr));
+            SelectedDate.TotalParticipants += Participants;
+
         }
+
 
         //fjernelse af grupper via GUI'en
         public void RemoveGroup()
         {
             SelectedDate.RemoveGroup(SelectedGroup.TeamName);
         }
-
         
+
+        //metode der løber listen af grupper igennem opdaterer TotalParticipants med participants fra hver gruppe.
+        public void CheckTotalParticipants()
+        {
+            SelectedDate.TotalParticipants = 0;
+            for (int i = 0; i < SelectedDate.Groups.Count; i++)
+            {
+                SelectedDate.TotalParticipants += SelectedDate.Groups[i].Participants;
+            }
+        }
+
         #endregion
 
+        
 
     }
 }

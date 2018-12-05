@@ -16,8 +16,19 @@ namespace QuizManager.Model
 
         #region Instance Fields
         
-        private int _totalSeats;
+        
+
         private ObservableCollection<ModelGroup> _groups;
+
+        private int _totalSeats;
+        private int _totalParticipants;
+        private double _totalRevenue;
+        private double _revenue20To24;
+        private double _revenue24ToClose;
+        private double _totalRevenueQuiz;
+        private double _totalRevenueQuizParticipants;
+        private double _revenueQuizOffers;
+
 
         #endregion
 
@@ -41,17 +52,19 @@ namespace QuizManager.Model
         }
 
         //Deltagere i alt
-        public int TotalParticipants { get; set; }
+        public int TotalParticipants
+        {
+            get => _totalParticipants;
+            set
+            {_totalParticipants = value; OnPropertyChanged(); }
+        }
 
         //antal stole i alt.
         public int TotalSeats
         {
             get => _totalSeats;
             set
-            {
-                _totalSeats = value; 
-                OnPropertyChanged();
-            }
+            {_totalSeats = value; OnPropertyChanged(); }
         }
 
         //betaling i alt.
@@ -61,22 +74,46 @@ namespace QuizManager.Model
         #region Statistik
 
         //Dagens Omsætning
-        public double TotalRevenue { get; set; }
-        
+        public double TotalRevenue
+        {
+            get => _totalRevenue;
+            set { _totalRevenue = value; OnPropertyChanged();}
+        }
+
         //Omsætningen i tidsrummet 20-24
-        public double Revenue20To24 { get; set; }
+        public double Revenue20To24
+        {
+            get => _revenue20To24;
+            set { _revenue20To24 = value; OnPropertyChanged();}
+        }
 
         //Omsætningen i tidsrummet 24-lukketid
-        public double Revenue24ToClose { get; set; }
+        public double Revenue24ToClose
+        {
+            get => _revenue24ToClose;
+            set { _revenue24ToClose = value; OnPropertyChanged() ;}
+        }
 
         //Totale omsætning af deltagelsesgebyr og salg til deltagere
-        public double TotalRevenueQuiz { get; set; }
+        public double TotalRevenueQuiz
+        {
+            get => _totalRevenueQuiz;
+            set { _totalRevenueQuiz = value; OnPropertyChanged(); }
+        }
 
         //Totale omsætning af quizdeltagelsesgebyr
-        public double TotalRevenueQuizParticipants { get; set; }
+        public double TotalRevenueQuizParticipants
+        {
+            get => _totalRevenueQuizParticipants;
+            set { _totalRevenueQuizParticipants = value; OnPropertyChanged(); }
+        }
 
         //Totale omsætning af varer solgt med rabat til quiz deltagere
-        public double RevenueQuizOffers { get; set; }
+        public double RevenueQuizOffers
+        {
+            get => _revenueQuizOffers;
+            set { _revenueQuizOffers = value; OnPropertyChanged(); }
+        }
 
         #endregion
 
