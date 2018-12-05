@@ -33,6 +33,7 @@ namespace QuizManager.ViewModel
         
         private ObservableCollection<ModelDate> _dates;
         private ModelGroup _selectedGroup;
+        private ModelDate _selectedDate;
 
         #endregion
 
@@ -62,10 +63,18 @@ namespace QuizManager.ViewModel
 
         
         #region Properties
-        
+
         //SelectedDate property som kan bruges til at få fat i properties hos en valgt ModelDate
-        public ModelDate SelectedDate { get; set; }
-        
+        public ModelDate SelectedDate
+        {
+            get => _selectedDate;
+            set
+            {
+                _selectedDate = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         //property der har med SelectedGroup at gøre, som kan vælges fra GridView i ViewBasement
         public ModelGroup SelectedGroup
