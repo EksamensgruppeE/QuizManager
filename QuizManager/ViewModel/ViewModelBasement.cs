@@ -100,13 +100,18 @@ namespace QuizManager.ViewModel
         }
 
         #endregion
+
+
+
+        
+
         
         #region Empty Constructor
+
 
         public ViewModelBasement()
         {
             _dates = ModelEventsBasementSingleton.Instance.BasementDates;
-            
 
 
         }
@@ -137,6 +142,14 @@ namespace QuizManager.ViewModel
 
         }
 
+
+        //fjernelse af grupper via GUI'en
+        public void RemoveGroup()
+        {
+            SelectedDate.RemoveGroup(SelectedGroup.TeamName);
+        }
+        
+
         //metode der løber listen af grupper igennem opdaterer TotalParticipants med participants fra hver gruppe.
         public void CheckTotalParticipants()
         {
@@ -146,6 +159,7 @@ namespace QuizManager.ViewModel
                 SelectedDate.TotalParticipants += SelectedDate.Groups[i].Participants;
             }
         }
+
         #endregion
 
         

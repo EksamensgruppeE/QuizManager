@@ -13,7 +13,7 @@
 
 
     <Page.DataContext>
-        <ViewModel:ViewModelBasement />
+        <ViewModel:ViewModelBasement/>
     </Page.DataContext>
 
 
@@ -53,15 +53,15 @@
 
 
         <StackPanel x:Name="Hold_Grid" Grid.Row="0" Grid.Column="1">
-            <GridView x:Name="Holdnavn_Grid" ItemsSource="{Binding SelectedDate.Groups, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <GridView x:Name="Holdnavn_Grid" SelectedItem="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SelectedDate.Groups, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="auto">
 
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <Border
                             Margin="1"
                             BorderBrush="#FF060606"
-                            BorderThickness="1">
-                            <StackPanel Margin="5">
+                            BorderThickness="1" Width="auto">
+                            <StackPanel x:Name="Gridview_datatemplate" Margin="5">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Margin="0,0,0,0" Text="{Binding TeamName}" />
                                 </StackPanel>
@@ -70,12 +70,12 @@
                                     <TextBlock Margin="0,0,0,0" Text="{Binding TableNr}" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Antal Deltagere:" />
+                                    <TextBlock Text="Deltagere:" />
                                     <TextBlock Margin="5,0,0,0" Text="{Binding Participants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Alle betalt:" />
-                                    <TextBlock Margin="5,0,0,0" Text="{Binding AllPaid}" />
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding AllPaidMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock Text="{Binding AllAttendingMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
                             </StackPanel>
                         </Border>
@@ -84,8 +84,8 @@
             </GridView>
 
             <!-- Tilføjelse af nye hold -->
-            <StackPanel  BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
+            <StackPanel x:Name="Tilføj_gruppe"  BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel x:Name="Tilføj_gruppe_info" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
                     <StackPanel Margin="0,0,5,0">
                         <TextBlock Text="Holdnavn:"/>
                         <TextBlock Text="Tlf nummer:"/>
@@ -99,7 +99,7 @@
                         <TextBox Text="{Binding TableNr, Mode=TwoWay}"/>
                     </StackPanel>
                 </StackPanel>
-                <Button Content="Add Group" HorizontalAlignment="Center">
+                <Button x:Name="Tilføj_gruppe_knap" Content="Add Group" HorizontalAlignment="Center">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="AddGroup"/>
@@ -206,6 +206,13 @@
                     </Interactivity:Interaction.Behaviors>
                 </Button>
             </StackPanel>
+            <Button x:Name="SletGruppe" Content="Slet Gruppe" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="RemoveGroup"/>
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
         </StackPanel>
 
         <!--  Rasmus  -->

@@ -12,11 +12,11 @@ namespace QuizManager.Model
 {
     class ModelGroup : INotifyPropertyChanged
     {
-        private bool _allPaid;
+        private string _allPaidMessage;
+        private string _allAttendingMessage;
         private int _participants;
         private int _numberOfPayments;
         private int _numberOfAttendingParticipants;
-        private bool _allAttending;
 
 
         #region Properties
@@ -45,6 +45,8 @@ namespace QuizManager.Model
             {
                 _numberOfPayments = value;
                 OnPropertyChanged();
+                if (NumberOfPayments >= Participants) AllPaidMessage = "Alle betalt";
+                if (NumberOfPayments < Participants) AllPaidMessage = "";
             }
         }
 
@@ -55,29 +57,31 @@ namespace QuizManager.Model
             {
                 _numberOfAttendingParticipants = value;
                 OnPropertyChanged();
+                if (NumberOfAttendingParticipants >= Participants) AllAttendingMessage = "Alle fremmødt";
+                if (NumberOfAttendingParticipants < Participants) AllAttendingMessage = "";
             }
         }
 
-        public bool AllPaid
+        public string AllPaidMessage
         {
-            get
+            get { return _allPaidMessage; }
+            set
             {
-                if (Participants == NumberOfPayments) _allPaid = true;
-                else _allPaid = false;
-                return _allPaid;
+                _allPaidMessage = value;
+                OnPropertyChanged();
             }
-            set { _allPaid = value; }
         }
 
-        public bool AllAttending
+        public string AllAttendingMessage
         {
-            get
+            get { return _allAttendingMessage; }
+            set
             {
-                if (NumberOfAttendingParticipants == Participants) _allAttending = true;
-                else _allAttending = false;
-                return _allAttending;
+                _allAttendingMessage = value;
+                OnPropertyChanged();
             }
         }
+
 
         #endregion
 
@@ -90,6 +94,8 @@ namespace QuizManager.Model
             _participants = participants;
             TableNr = tableNr;
             _numberOfPayments = 0;
+            AllPaidMessage = "";
+            AllAttendingMessage = "";
         }
 
         #endregion
@@ -111,25 +117,29 @@ namespace QuizManager.Model
         //tilføjelse af 1 betaling
         public void AddOnePayment()
         {
-            NumberOfPayments++;
+            if (NumberOfPayments<Participants) NumberOfPayments++;
+            if (NumberOfPayments >= Participants) AllPaidMessage = "Alle Betalt";
         }
 
         //fjernelse af 1 betaling
         public void RemoveOnePayment()
         {
             if (NumberOfPayments > 0) NumberOfPayments--;
+            if (NumberOfPayments < Participants) AllPaidMessage = "";
         }
 
         //tilføjelse af 1 tilstedeværende deltager (vedkommende er dukket op)
         public void AddOneAttending()
         {
-            NumberOfAttendingParticipants++;
+           if (NumberOfAttendingParticipants<Participants) NumberOfAttendingParticipants++;
+            if (NumberOfAttendingParticipants >= Participants) AllAttendingMessage = "Alle fremmødt";
         }
 
         //fjernelse af 1 tilstedeværende deltager (vedkommende er taget hjem eller har aflyst
         public void RemoveOneAttending()
         {
             if (NumberOfAttendingParticipants > 0) NumberOfAttendingParticipants--;
+            if (NumberOfAttendingParticipants < Participants) AllAttendingMessage = "";
         }
 
         #endregion
