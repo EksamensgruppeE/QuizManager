@@ -17,6 +17,7 @@ namespace QuizManager.Model
         #region Instance Fields
         
         private int _totalSeats;
+        private int _totalParticipants;
 
         #endregion
 
@@ -32,7 +33,15 @@ namespace QuizManager.Model
         public ObservableCollection<ModelGroup> Groups { get; set; }
 
         //Deltagere i alt
-        public int TotalParticipants { get; set; }
+        public int TotalParticipants
+        {
+            get => _totalParticipants;
+            set
+            {
+                _totalParticipants = value; 
+                OnPropertyChanged();
+            }
+        }
 
         //antal stole i alt.
         public int TotalSeats

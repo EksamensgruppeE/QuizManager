@@ -219,21 +219,21 @@
                 <StackPanel x:Name="Events1" Orientation="Vertical">
                     <StackPanel x:Name="TotalSeats" Margin="0" Orientation="Horizontal">
                         <TextBlock TextWrapping="Wrap" Text="Antal Stole I Alt:" Width="291" FontSize="22"/>
-                        <TextBlock
+                        <TextBox
                             x:Name="Antal_Pladser"
-                            Width="70"
-                            Height="65"
+                            Width="120"
+                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
                             FontSize="24"
                             Foreground="#FF050589"
-                            Text="{Binding SelectedDate.TotalSeats}"
+                            Text="{Binding SelectedDate.TotalSeats, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Add_Seat"
                             Width="30"
-                            Height="30"
+                            Height="42"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="+">
@@ -247,7 +247,7 @@
                         <Button
                             x:Name="Subtract_Seat"
                             Width="30"
-                            Height="30"
+                            Height="42"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="-">
@@ -259,18 +259,18 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="TotalRevenue" Margin="0" Orientation="Horizontal">
+                    <StackPanel x:Name="TotalRevenue" Margin="0,12,0,0" Orientation="Horizontal">
                         <TextBlock TextWrapping="Wrap" Text="Total Omsætning:" Width="291" FontSize="22"/>
-                        <TextBlock
+                        <TextBox
                             x:Name="Antal_Pladser5"
-                            Width="70"
-                            Height="65"
+                            Width="120"
+                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
                             FontSize="24"
                             Foreground="#FF050589"
-                            Text="{Binding SelectedDate.TotalSeats}"
+                            Text="{Binding SelectedDate.TotalRevenue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Add_Seat5"
@@ -301,18 +301,18 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="Revenue20To24" Margin="0" Orientation="Horizontal">
+                    <StackPanel x:Name="Revenue20To24" Margin="0,12,0,0" Orientation="Horizontal">
                         <TextBlock TextWrapping="Wrap" Text="Omsætning Fra 20 - 24:" FontSize="22" Width="291"/>
-                        <TextBlock
+                        <TextBox
                             x:Name="Antal_Pladser2"
-                            Width="70"
-                            Height="65"
+                            Width="120"
+                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
                             FontSize="24"
                             Foreground="#FF050589"
-                            Text="{Binding SelectedDate.TotalSeats}"
+                            Text="{Binding SelectedDate.Revenue20To24, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Add_Seat2"
@@ -343,18 +343,18 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="Revenue24ToClose1" Margin="0" Orientation="Horizontal">
+                    <StackPanel x:Name="Revenue24ToClose1" Margin="0,12,0,0" Orientation="Horizontal">
                         <TextBlock TextWrapping="Wrap" Text="Omsætning Fra 24 - Lukketid:" Width="291" FontSize="22"/>
-                        <TextBlock
+                        <TextBox
                             x:Name="Antal_Pladser1"
-                            Width="70"
-                            Height="65"
+                            Width="120"
+                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
                             FontSize="24"
                             Foreground="#FF050589"
-                            Text="{Binding SelectedDate.TotalSeats}"
+                            Text="{Binding SelectedDate.Revenue24ToClose, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Add_Seat1"
@@ -386,61 +386,47 @@
                         </Button>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel x:Name="Events2" Orientation="Vertical" Margin="270,0,0,0">
+                <StackPanel x:Name="Events2" Orientation="Vertical" Margin="180,0,0,0">
                     <StackPanel x:Name="TotalParticipants" Margin="0" Orientation="Horizontal">
                         <TextBlock TextWrapping="Wrap" Text="Deltagere I Alt:" Width="270" FontSize="22"/>
-                        <TextBlock
+                        <TextBox
                             x:Name="Antal_Pladser4"
-                            Width="70"
-                            Height="65"
+                            Width="120"
+                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
                             FontSize="24"
                             Foreground="#FF050589"
-                            Text="{Binding SelectedDate.TotalSeats}"
+                            Text="{Binding SelectedDate.TotalParticipants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Add_Seat4"
-                            Width="30"
+                            Width="60"
                             Height="30"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="+">
+                            Content="Check">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction MethodName="AddSeat" TargetObject="{Binding Mode=OneWay}" />
-                                </Core:EventTriggerBehavior>
-                            </Interactivity:Interaction.Behaviors>
-
-                        </Button>
-                        <Button
-                            x:Name="Subtract_Seat4"
-                            Width="30"
-                            Height="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Content="-">
-                            <Interactivity:Interaction.Behaviors>
-                                <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction MethodName="SubtractSeat" TargetObject="{Binding Mode=OneWay}" />
+                                    <Core:CallMethodAction MethodName="CheckTotalParticipants" TargetObject="{Binding Mode=OneWay}" />
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="TotalRevenueQuiz" Margin="0" Orientation="Horizontal">
+                    <StackPanel x:Name="TotalRevenueQuiz" Margin="0,12,0,0" Orientation="Horizontal">
                         <TextBlock TextWrapping="Wrap" Text="Total Quiz Omsætning:" Width="270" FontSize="22"/>
-                        <TextBlock
+                        <TextBox
                             x:Name="Antal_Pladser3"
-                            Width="70"
-                            Height="65"
+                            Width="120"
+                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
                             FontSize="24"
                             Foreground="#FF050589"
-                            Text="{Binding SelectedDate.TotalSeats}"
+                            Text="{Binding SelectedDate.TotalRevenueQuiz, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Add_Seat3"
@@ -471,18 +457,18 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="TotalRevenueQuizParticipants" Margin="0" Orientation="Horizontal">
+                    <StackPanel x:Name="TotalRevenueQuizParticipants" Margin="0,12,0,0" Orientation="Horizontal">
                         <TextBlock TextWrapping="Wrap" Text="Total Omsætning                     For Quiz Deltagere: " Width="270" FontSize="22"/>
-                        <TextBlock
+                        <TextBox
                             x:Name="Antal_Pladser7"
-                            Width="70"
-                            Height="65"
+                            Width="120"
+                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
                             FontSize="24"
                             Foreground="#FF050589"
-                            Text="{Binding SelectedDate.TotalSeats}"
+                            Text="{Binding SelectedDate.TotalRevenueQuizParticipants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Add_Seat7"
@@ -515,16 +501,16 @@
                     </StackPanel>
                     <StackPanel x:Name="RevenueQuizOffers" Margin="0" Orientation="Horizontal">
                         <TextBlock TextWrapping="Wrap" Text="Omsætning Af Quiz Tilbud: " Width="270" FontSize="22"/>
-                        <TextBlock
+                        <TextBox
                             x:Name="Antal_Pladser6"
-                            Width="70"
-                            Height="65"
+                            Width="120"
+                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
                             FontSize="24"
                             Foreground="#FF050589"
-                            Text="{Binding SelectedDate.TotalSeats}"
+                            Text="{Binding SelectedDate.RevenueQuizOffers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Add_Seat6"
