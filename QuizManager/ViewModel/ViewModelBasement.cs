@@ -133,13 +133,23 @@ namespace QuizManager.ViewModel
             SelectedDate.TotalSeats--;
         }
 
-        //tilføje nye grupper via GUI'en
+        //tilføje nye grupper via GUI'en, samt opdatere TotalParticipants
         public void AddGroup()
         {
             SelectedDate.AddGroup(new ModelGroup(TeamName, PhoneNumber, Participants, TableNr));
+            SelectedDate.TotalParticipants += Participants;
+
         }
 
-        
+        //metode der løber listen af grupper igennem opdaterer TotalParticipants med participants fra hver gruppe.
+        public void CheckTotalParticipants()
+        {
+            SelectedDate.TotalParticipants = 0;
+            for (int i = 0; i < SelectedDate.Groups.Count; i++)
+            {
+                SelectedDate.TotalParticipants += SelectedDate.Groups[i].Participants;
+            }
+        }
         #endregion
 
 
