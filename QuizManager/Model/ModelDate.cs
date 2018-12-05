@@ -128,13 +128,11 @@ namespace QuizManager.Model
             return null;
         }
 
-        //står også i ViewModelBasement. Skal den slettes?
-        public void AddTest()
+        public void AddGroup(ModelGroup group)
         {
-            Groups.Add(new ModelGroup("Russerne", "10203040", 7, 1));
-            Groups.Add(new ModelGroup("StupidTeamName", "20304050", 3, 1));
-            Groups.Add(new ModelGroup("Gede Hviskerne", "30405060", 12, 3));
+           Groups.Add(group);
         }
+
 
         #endregion
 
