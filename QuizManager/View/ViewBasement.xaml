@@ -59,7 +59,36 @@
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
+            
+            <!-- Tilføjelse af nye hold -->
+            <StackPanel  BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
+                    <StackPanel Margin="0,0,5,0">
+                        <TextBlock Text="Holdnavn:"/>
+                        <TextBlock Text="Tlf nummer:"/>
+                        <TextBlock Text="Antal deltagere:"/>
+                        <TextBlock Text="Bord Nr: "/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox Text="{Binding TeamName, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding PhoneNumber, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding Participants, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding TableNr, Mode=TwoWay}"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Content="Add Group" HorizontalAlignment="Center">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="AddGroup"/>
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+            </StackPanel>
+            <!--Slut tilføjelse af hold-->
+            
         </StackPanel>
+        <!--End of gridview-->
+
 
         <!--  Edit groups - Laura  -->
         <StackPanel x:Name="Hold_Info" Grid.Row="0" Grid.Column="2">
