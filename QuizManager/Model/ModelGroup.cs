@@ -104,6 +104,7 @@ namespace QuizManager.Model
         }
         #endregion
 
+        //
 
         #region InotifyPropertyChanged
 
