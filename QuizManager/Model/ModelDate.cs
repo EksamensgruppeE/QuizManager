@@ -28,6 +28,7 @@ namespace QuizManager.Model
         private double _totalRevenueQuiz;
         private double _totalRevenueQuizParticipants;
         private double _revenueQuizOffers;
+        //private string _date;
 
 
         #endregion
@@ -35,8 +36,29 @@ namespace QuizManager.Model
 
         #region Properties
 
-        //Undersøges for relevant datatype
+        #region DateTimeProperties
+
+        private int Year { get; set; }
+        private int Month { get; set; }
+        private int Day { get; set; }
+
+        public DateTime TheDateTime { get; set; }
+
         public string Date { get; set; }
+
+        //public string Date
+        //{
+        //    get
+        //    {
+        //        _date = TheDateTime.
+        //        return _date;
+        //    }
+        //    set { _date = value; }
+        //}
+
+        #endregion
+
+        //Undersøges for relevant datatype
 
         public string EventType { get; set; }
 
@@ -128,10 +150,14 @@ namespace QuizManager.Model
 
         //skal måske erstattes af nedenstående constructor
 
-        public ModelDate(string date, string eventType, int totalParticipants, int totalSeats, int totalPayments, double totalRevenue, double revenue20To24, double revenue24ToClose, double totalRevenueQuiz, double totalRevenueQuizParticipants, double revenueQuizOffers)
+        public ModelDate(int day, int month, int year, string eventType, int totalParticipants, int totalSeats, int totalPayments, double totalRevenue, double revenue20To24, double revenue24ToClose, double totalRevenueQuiz, double totalRevenueQuizParticipants, double revenueQuizOffers)
 
         {
-            Date = date;
+            Year = year;
+            Month = month;
+            Day = day;
+            TheDateTime = new DateTime(Year, Month, Day);
+            Date = $"{TheDateTime.Day}-{TheDateTime.Month}-{TheDateTime.Year}";
             EventType = eventType;
             Groups = new ObservableCollection<ModelGroup>();
             TotalParticipants = totalParticipants;
@@ -147,9 +173,13 @@ namespace QuizManager.Model
 
         
         //Er det ikke bedre at have en lidt mere simpel constructor, som nedenstående? - Laura
-        public ModelDate(string date, string eventType, int totalSeats)
+        public ModelDate(int day, int month, int year, string eventType, int totalSeats)
         {
-            Date = date;
+            Year = year;
+            Month = month;
+            Day = day;
+            TheDateTime = new DateTime(Year, Month, Day);
+            Date = $"{TheDateTime.Day}-{TheDateTime.Month}-{TheDateTime.Year}";
             EventType = eventType;
             Groups = new ObservableCollection<ModelGroup>();
             TotalSeats = totalSeats;

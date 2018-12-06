@@ -61,8 +61,12 @@ namespace QuizManager.ViewModel
         //property der har med Dato at gøre
         public string Date { get; set; }
 
-        
+
         #region Properties
+
+        private int Year { get; set; }
+        private int Month { get; set; }
+        private int Day { get; set; }
 
         //SelectedDate property som kan bruges til at få fat i properties hos en valgt ModelDate
         public ModelDate SelectedDate
@@ -106,7 +110,7 @@ namespace QuizManager.ViewModel
         
 
         
-        #region Empty Constructor
+        #region Constructor
 
 
         public ViewModelBasement()
