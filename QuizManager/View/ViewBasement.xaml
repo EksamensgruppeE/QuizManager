@@ -250,8 +250,8 @@
 
 
                 <!--  Edit groups - Laura  -->
-                <Border  BorderBrush="Black" BorderThickness="1" Grid.Column="1" >
-                    <StackPanel
+                <Border  BorderBrush="Black" BorderThickness="1" Grid.Column="2" >
+                    <StackPanel 
             x:Name="Hold_Info"
             Grid.Row="0"
 
@@ -363,9 +363,9 @@
                            
                     </StackPanel>
                 </Border>
-            </Grid>
+            
 
-        </StackPanel>
+       
 
 
 
@@ -695,10 +695,10 @@
         <!--    -->
 
 
-
-
-
-
     </Grid>
+
+  
+
+
 
 </Page>
