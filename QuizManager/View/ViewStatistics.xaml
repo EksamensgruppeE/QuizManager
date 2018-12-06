@@ -15,71 +15,59 @@
 
     <Grid >
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Basement Statistik" VerticalAlignment="Top" FontSize="36" Grid.Column="2" Grid.ColumnSpan="3"/>
-        <ListView Height="647" Margin="10,63,10,0" VerticalAlignment="Top" ItemsSource="{Binding SelectedDate}" Background="White" >
+        <ListView Margin="10,63,10,10" ItemsSource="{Binding Dates}" Background="#FFC8C8C8" VerticalAlignment="Top" >
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <Grid Padding="12" Background="LightSlateGray">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="150"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Dato" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <TextBlock Grid.Column="1" Text="Event" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <TextBlock Grid.Column="2" Text="Antal Deltager" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        <TextBlock Grid.Column="3" Text="Total Omsætning" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        <TextBlock Grid.Column="4" Text="Event Omsætning" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        <TextBlock Grid.Column="5" Text="Event Tilbud" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="3" Text="Deltager Omsætning" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="4" Text="Event Tilbud" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="5" Text="Event Omsætning" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <TextBlock Grid.Column="6" Text="kl.20-24" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <TextBlock Grid.Column="7" Text="kl.24-Luk" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        <TextBlock Grid.Column="8" Text="Evt" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        <TextBlock Grid.Column="9" Text="Ved ikke" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        <TextBlock Grid.Column="10" Text="MM." Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="8" Text="Total Omsætning" Style="{ThemeResource CaptionTextBlockStyle}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.HeaderTemplate>
             <ListView.ItemTemplate>
-                <DataTemplate x:Name="TableDataTemplate" x:DataType="local:ViewBasementDate">
+                <DataTemplate x:Name="TableDataTemplate">
                     <Grid Height="48" >
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="120"/>
-                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="135"/>
+                            <ColumnDefinition Width="150"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding SelectedDate.Date}" />
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedDate.EventType}"/>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding SelectedDate.TotalParticipants}"/>
-                        <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{Binding SelectedDate.TotalRevenue}"/>
-                        <TextBlock Grid.Column="4" VerticalAlignment="Center" Text="{Binding SelectedDate.TotalRevenueQuiz}"/>
-                        <TextBlock Grid.Column="5" VerticalAlignment="Center" Text=""/>
-                        <TextBlock Grid.Column="6" VerticalAlignment="Center" Text=""/>
-                        <TextBlock Grid.Column="7" VerticalAlignment="Center" Text=""/>
-                        <TextBlock Grid.Column="8" VerticalAlignment="Center" Text=""/>
-                        <TextBlock Grid.Column="9" VerticalAlignment="Center" Text=""/>
-                        <TextBlock Grid.Column="10" VerticalAlignment="Center" Text=""/>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Date}" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding EventType}"/>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{Binding TotalParticipants}"/>
+                        <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{Binding TotalRevenueQuizParticipants}"/>
+                        <TextBlock Grid.Column="4" VerticalAlignment="Center" Text="{Binding RevenueQuizOffers}"/>
+                        <TextBlock Grid.Column="5" VerticalAlignment="Center" Text="{Binding TotalRevenueQuiz}"/>
+                        <TextBlock Grid.Column="6" VerticalAlignment="Center" Text="{Binding Revenue20To24}"/>
+                        <TextBlock Grid.Column="7" VerticalAlignment="Center" Text="{Binding Revenue24ToClose}"/>
+                        <TextBlock Grid.Column="8" VerticalAlignment="Center" Text="{Binding TotalRevenue}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-            
-
-
-        
     </Grid>
 </Page>
