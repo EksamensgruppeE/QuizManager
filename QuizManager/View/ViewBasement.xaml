@@ -10,27 +10,106 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
 
     <Page.DataContext>
-        <ViewModel:ViewModelBasement/>
+        <ViewModel:ViewModelBasement />
     </Page.DataContext>
 
 
-    <Grid>
+    <Grid Background="#354357">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
 
 
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.RowSpan="2">
+        <StackPanel Grid.RowSpan="2" Padding="5">
+            <StackPanel
+                BorderBrush="#282b30"
+                BorderThickness="0,0,0,1"
+                Orientation="Horizontal">
+                <Button
+                    Background="{x:Null}"
+                    Content="&#xE716;;"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="29"
+                    Foreground="White"
+                    Style="{StaticResource StandardMenuButton}">
+                    <Button.Flyout>
+                        <Flyout FlyoutPresenterStyle="{StaticResource FlyoutPresenterStyle}" Placement="Right">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="20"
+                                    Foreground="White"
+                                    Text="Dato" />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="20"
+                                    Foreground="White"
+                                    Text="Event navn" />
+                                <Button
+                                    x:Name="Tilføj_event_knap"
+                                    Grid.Row="2"
+                                    HorizontalAlignment="Center"
+                                    Content="Tilføj Event"
+                                    Foreground="White" />
+
+                                <CalendarDatePicker
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    PlaceholderText="Event dato:" />
+
+
+
+
+                                <TextBox
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    PlaceholderText="Event Navn:" />
+
+
+
+
+
+
+
+                            </Grid>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Tilføj Event" />
+            </StackPanel>
             <ListView ItemsSource="{Binding Dates}" SelectedItem="{Binding SelectedDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -38,8 +117,14 @@
                             Padding="0,5,0,10"
                             BorderBrush="Black"
                             BorderThickness="0,0,0,1">
-                            <TextBlock FontSize="20" Text="{Binding Date}" />
-                            <TextBlock FontSize="20" Text="{Binding EventType}" />
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="White"
+                                Text="{Binding Date}" />
+                            <TextBlock
+                                FontSize="20"
+                                Foreground="White"
+                                Text="{Binding EventType}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -50,75 +135,118 @@
 
         <!--  GridView Groups  Laura  -->
 
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="2">
-            <TextBlock Text="{Binding SelectedDate.Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
 
-                <Border  BorderBrush="Black" BorderThickness="1">
-                <StackPanel x:Name="Hold_Grid" Grid.Row="0" Grid.Column="0">
-                    <GridView x:Name="Holdnavn_Grid" SelectedItem="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SelectedDate.Groups, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="auto">
 
-                        <GridView.ItemTemplate>
-                            <DataTemplate>
-                                <Border
-                            Margin="1"
-                            BorderBrush="#FF354357"
-                            BorderThickness="1" Width="auto" Background="#FF29527C">
-                                    <StackPanel x:Name="Gridview_datatemplate" Margin="5">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Margin="0,0,0,0" Text="{Binding TeamName}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Bord nummer #" />
-                                            <TextBlock Margin="0,0,0,0" Text="{Binding TableNr}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Deltagere:" />
-                                            <TextBlock Margin="5,0,0,0" Text="{Binding Participants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Vertical">
-                                            <TextBlock Text="{Binding AllPaidMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FocusVisualPrimaryBrush="{x:Null}" Foreground="#FF2EC50D" />
-                                            <TextBlock Text="{Binding AllAttendingMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                        </StackPanel>
+        <StackPanel
+            x:Name="Hold_Grid"
+            Grid.Row="0"
+            Grid.Column="1"
+            Padding="5">
+            <StackPanel
+                BorderBrush="#282b30"
+                BorderThickness="0,0,0,1"
+                Orientation="Horizontal">
+                <Button
+                    x:Name="SearchButton"
+                    Background="{x:Null}"
+                    Content="&#xE7EE;"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="29"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Style="{StaticResource StandardMenuButton}">
+
+                    <Button.Flyout>
+                        <Flyout FlyoutPresenterStyle="{StaticResource FlyoutPresenterStyle}" Placement="Right">
+                            <StackPanel
+                                x:Name="Tilføj_gruppe"
+                                Padding="10"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <StackPanel
+                                    x:Name="Tilføj_gruppe_info"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <StackPanel Margin="0,0,5,0">
+                                        <TextBlock Foreground="White" Text="Holdnavn:" />
+                                        <TextBlock Foreground="White" Text="Tlf nummer:" />
+                                        <TextBlock Foreground="White" Text="Antal deltagere:" />
+                                        <TextBlock Foreground="White" Text="Bord Nr: " />
                                     </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </GridView.ItemTemplate>
-                    </GridView>
-
-                    <!-- Tilføjelse af nye hold -->
-                    <StackPanel x:Name="Tilføj_gruppe"  BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <StackPanel x:Name="Tilføj_gruppe_info" HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-                            <StackPanel Margin="0,0,5,0">
-                                <TextBlock Text="Holdnavn:"/>
-                                <TextBlock Text="Tlf nummer:"/>
-                                <TextBlock Text="Antal deltagere:"/>
-                                <TextBlock Text="Bord Nr: "/>
+                                    <StackPanel>
+                                        <TextBox Text="{Binding TeamName, Mode=TwoWay}" />
+                                        <TextBox Text="{Binding PhoneNumber, Mode=TwoWay}" />
+                                        <TextBox Text="{Binding Participants, Mode=TwoWay}" />
+                                        <TextBox Text="{Binding TableNr, Mode=TwoWay}" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <Button
+                                    x:Name="Tilføj_gruppe_knap"
+                                    HorizontalAlignment="Center"
+                                    Content="Tilføj Gruppe"
+                                    Foreground="White">
+                                    <Interactivity:Interaction.Behaviors>
+                                        <Core:EventTriggerBehavior EventName="Click">
+                                            <Core:CallMethodAction MethodName="AddGroup" TargetObject="{Binding Mode=OneWay}" />
+                                        </Core:EventTriggerBehavior>
+                                    </Interactivity:Interaction.Behaviors>
+                                </Button>
                             </StackPanel>
-                            <StackPanel>
-                                <TextBox Text="{Binding TeamName, Mode=TwoWay}"/>
-                                <TextBox Text="{Binding PhoneNumber, Mode=TwoWay}"/>
-                                <TextBox Text="{Binding Participants, Mode=TwoWay}"/>
-                                <TextBox Text="{Binding TableNr, Mode=TwoWay}"/>
-                            </StackPanel>
-                        </StackPanel>
-                        <Button x:Name="Tilføj_gruppe_knap" Content="Add Group" HorizontalAlignment="Center">
-                            <Interactivity:Interaction.Behaviors>
-                                <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="AddGroup"/>
-                                </Core:EventTriggerBehavior>
-                            </Interactivity:Interaction.Behaviors>
-                        </Button>
-                    </StackPanel>
-                    <!--Slut tilføjelse af hold-->
 
-                </StackPanel>
-                </Border>
-                <!--End of gridview-->
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                <TextBlock
+                    FontSize="20"
+                    Foreground="White"
+                    Text="Tilføj en gruppe" />
+            </StackPanel>
+            <Grid MaxHeight="300">
+                <GridView
+                    x:Name="Holdnavn_Grid"
+                    ItemsSource="{Binding SelectedDate.Groups, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                    ScrollViewer.VerticalScrollMode="Enabled"
+                    SelectedItem="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                Width="auto"
+                                Margin="1"
+                                BorderBrush="#FF060606"
+                                BorderThickness="1">
+                                <StackPanel x:Name="Gridview_datatemplate" Margin="5">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Margin="0,0,0,0" Text="{Binding TeamName}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Bord nummer #" />
+                                        <TextBlock Margin="0,0,0,0" Text="{Binding TableNr}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Deltagere:" />
+                                        <TextBlock Margin="5,0,0,0" Text="{Binding Participants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="{Binding AllPaidMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBlock Text="{Binding AllAttendingMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </Grid>
+        </StackPanel>
+        <!--  Tilføjelse af nye hold  -->
+        <!--  Slut tilføjelse af hold  -->
+
+
+        <!--  End of gridview  -->
+
 
 
                 <!--  Edit groups - Laura  -->
@@ -126,8 +254,11 @@
                     <StackPanel
             x:Name="Hold_Info"
             Grid.Row="0"
-            Grid.Column="1">
-                        <StackPanel
+
+            Grid.Column="2"
+            Padding="5">
+            <StackPanel
+
                 x:Name="Holdnavn"
                 Margin="0,0,0,20"
                 Orientation="Horizontal">
@@ -207,24 +338,33 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Text="{Binding SelectedGroup.NumberOfPayments, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                            <Button Margin="10,0,0,0" Content="+">
-                                <Interactivity:Interaction.Behaviors>
-                                    <Core:EventTriggerBehavior EventName="Click">
-                                        <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding SelectedGroup}" />
-                                    </Core:EventTriggerBehavior>
-                                </Interactivity:Interaction.Behaviors>
-                            </Button>
-                        </StackPanel>
-                        <Button x:Name="SletGruppe" Content="Slet Gruppe" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0">
-                            <Interactivity:Interaction.Behaviors>
-                                <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="RemoveGroup"/>
-                                </Core:EventTriggerBehavior>
-                            </Interactivity:Interaction.Behaviors>
-                        </Button>
+
+                <Button Margin="10,0,0,0" Content="+">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding SelectedGroup}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+            </StackPanel>
+            <Button
+                x:Name="SletGruppe"
+                Margin="0,100,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Slet Gruppe">
+                <Interactivity:Interaction.Behaviors>
+                    <Core:EventTriggerBehavior EventName="Click">
+                        <Core:CallMethodAction MethodName="RemoveGroup" TargetObject="{Binding Mode=OneWay}" />
+                    </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+
+                           
                     </StackPanel>
                 </Border>
             </Grid>
+
         </StackPanel>
 
 
@@ -235,11 +375,27 @@
             Grid.Row="1"
             Grid.Column="1"
             Grid.ColumnSpan="2">
-            <TextBlock TextWrapping="Wrap" Foreground="#FF0D0D0D" FontSize="36" Text="Informationer For Det Valgte Event" Margin="5,0,0,0"/>
-            <StackPanel x:Name="Events" Orientation="Horizontal" Margin="0,20,0,0">
+
+            <TextBlock
+                FontSize="36"
+                Foreground="#FF0D0D0D"
+                Text="Informationer For Det Valgte Event"
+                TextWrapping="Wrap" />
+            <StackPanel
+                x:Name="Events"
+                Margin="0,20,0,0"
+                Orientation="Horizontal">
+
                 <StackPanel x:Name="Events1" Orientation="Vertical">
-                    <StackPanel x:Name="TotalSeats" Margin="0" Orientation="Horizontal">
-                        <TextBlock TextWrapping="Wrap" Text="Antal Stole I Alt:" Width="291" FontSize="22"/>
+                    <StackPanel
+                        x:Name="TotalSeats"
+                        Margin="0"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Width="291"
+                            FontSize="22"
+                            Text="Antal Stole I Alt:"
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser"
                             Width="120"
@@ -280,8 +436,15 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="TotalRevenue" Margin="0,12,0,0" Orientation="Horizontal">
-                        <TextBlock TextWrapping="Wrap" Text="Total Omsætning:" Width="291" FontSize="22"/>
+                    <StackPanel
+                        x:Name="TotalRevenue"
+                        Margin="0,12,0,0"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Width="291"
+                            FontSize="22"
+                            Text="Total Omsætning:"
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser5"
                             Width="120"
@@ -302,14 +465,21 @@
                             Content="Enter">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction  />
+                                    <Core:CallMethodAction />
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="Revenue20To24" Margin="0,12,0,0" Orientation="Horizontal">
-                        <TextBlock TextWrapping="Wrap" Text="Omsætning Fra 20 - 24:" FontSize="22" Width="291"/>
+                    <StackPanel
+                        x:Name="Revenue20To24"
+                        Margin="0,12,0,0"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Width="291"
+                            FontSize="22"
+                            Text="Omsætning Fra 20 - 24:"
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser2"
                             Width="120"
@@ -330,14 +500,21 @@
                             Content="Enter">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction  />
+                                    <Core:CallMethodAction />
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="Revenue24ToClose1" Margin="0,12,0,0" Orientation="Horizontal">
-                        <TextBlock TextWrapping="Wrap" Text="Omsætning Fra 24 - Lukketid:" Width="291" FontSize="22"/>
+                    <StackPanel
+                        x:Name="Revenue24ToClose1"
+                        Margin="0,12,0,0"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Width="291"
+                            FontSize="22"
+                            Text="Omsætning Fra 24 - Lukketid:"
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser1"
                             Width="120"
@@ -358,16 +535,26 @@
                             Content="Enter">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction  />
+                                    <Core:CallMethodAction />
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>
 
                         </Button>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel x:Name="Events2" Orientation="Vertical" Margin="180,0,0,0">
-                    <StackPanel x:Name="TotalParticipants" Margin="0" Orientation="Horizontal">
-                        <TextBlock TextWrapping="Wrap" Text="Deltagere I Alt:" Width="270" FontSize="22"/>
+                <StackPanel
+                    x:Name="Events2"
+                    Margin="180,0,0,0"
+                    Orientation="Vertical">
+                    <StackPanel
+                        x:Name="TotalParticipants"
+                        Margin="0"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Width="270"
+                            FontSize="22"
+                            Text="Deltagere I Alt:"
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser4"
                             Width="120"
@@ -394,8 +581,15 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="TotalRevenueQuiz" Margin="0,12,0,0" Orientation="Horizontal">
-                        <TextBlock TextWrapping="Wrap" Text="Total Quiz Omsætning:" Width="270" FontSize="22"/>
+                    <StackPanel
+                        x:Name="TotalRevenueQuiz"
+                        Margin="0,12,0,0"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Width="270"
+                            FontSize="22"
+                            Text="Total Quiz Omsætning:"
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser3"
                             Width="120"
@@ -416,14 +610,21 @@
                             Content="Enter">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction  />
+                                    <Core:CallMethodAction />
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="TotalRevenueQuizParticipants" Margin="0,12,0,0" Orientation="Horizontal">
-                        <TextBlock TextWrapping="Wrap" Text="Total Omsætning                     For Quiz Deltagere: " Width="270" FontSize="22"/>
+                    <StackPanel
+                        x:Name="TotalRevenueQuizParticipants"
+                        Margin="0,12,0,0"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Width="270"
+                            FontSize="22"
+                            Text="Total Omsætning                     For Quiz Deltagere: "
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser7"
                             Width="120"
@@ -444,14 +645,21 @@
                             Content="Enter">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction  />
+                                    <Core:CallMethodAction />
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>
 
                         </Button>
                     </StackPanel>
-                    <StackPanel x:Name="RevenueQuizOffers" Margin="0" Orientation="Horizontal">
-                        <TextBlock TextWrapping="Wrap" Text="Omsætning Af Quiz Tilbud: " Width="270" FontSize="22"/>
+                    <StackPanel
+                        x:Name="RevenueQuizOffers"
+                        Margin="0"
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Width="270"
+                            FontSize="22"
+                            Text="Omsætning Af Quiz Tilbud: "
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser6"
                             Width="120"
@@ -472,7 +680,7 @@
                             Content="Enter">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction  />
+                                    <Core:CallMethodAction />
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>
 
