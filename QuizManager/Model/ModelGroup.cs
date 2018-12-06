@@ -13,7 +13,6 @@ namespace QuizManager.Model
     class ModelGroup : INotifyPropertyChanged
     {
         private string _allPaidMessage;
-        private string _allAttendingMessage;
         private int _participants;
         private int _numberOfPayments;
         private int _numberOfAttendingParticipants;
@@ -50,18 +49,6 @@ namespace QuizManager.Model
             }
         }
 
-        public int NumberOfAttendingParticipants
-        {
-            get { return _numberOfAttendingParticipants; }
-            set
-            {
-                _numberOfAttendingParticipants = value;
-                OnPropertyChanged();
-                if (NumberOfAttendingParticipants >= Participants) AllAttendingMessage = "Alle fremmødt";
-                if (NumberOfAttendingParticipants < Participants) AllAttendingMessage = "";
-            }
-        }
-
         public string AllPaidMessage
         {
             get { return _allPaidMessage; }
@@ -71,17 +58,6 @@ namespace QuizManager.Model
                 OnPropertyChanged();
             }
         }
-
-        public string AllAttendingMessage
-        {
-            get { return _allAttendingMessage; }
-            set
-            {
-                _allAttendingMessage = value;
-                OnPropertyChanged();
-            }
-        }
-
 
         #endregion
 
@@ -95,7 +71,6 @@ namespace QuizManager.Model
             TableNr = tableNr;
             _numberOfPayments = 0;
             AllPaidMessage = "";
-            AllAttendingMessage = "";
         }
 
         #endregion
@@ -127,21 +102,6 @@ namespace QuizManager.Model
             if (NumberOfPayments > 0) NumberOfPayments--;
             if (NumberOfPayments < Participants) AllPaidMessage = "";
         }
-
-        //tilføjelse af 1 tilstedeværende deltager (vedkommende er dukket op)
-        public void AddOneAttending()
-        {
-           if (NumberOfAttendingParticipants<Participants) NumberOfAttendingParticipants++;
-            if (NumberOfAttendingParticipants >= Participants) AllAttendingMessage = "Alle fremmødt";
-        }
-
-        //fjernelse af 1 tilstedeværende deltager (vedkommende er taget hjem eller har aflyst
-        public void RemoveOneAttending()
-        {
-            if (NumberOfAttendingParticipants > 0) NumberOfAttendingParticipants--;
-            if (NumberOfAttendingParticipants < Participants) AllAttendingMessage = "";
-        }
-
         #endregion
 
 

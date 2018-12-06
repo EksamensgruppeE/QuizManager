@@ -75,7 +75,6 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="{Binding AllPaidMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                    <TextBlock Text="{Binding AllAttendingMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                                 </StackPanel>
                             </StackPanel>
                         </Border>
@@ -129,8 +128,8 @@
                 <TextBlock
                     Margin="5,0,0,0"
                     VerticalAlignment="Center"
-                    FontSize="20"
-                    Text="{Binding SelectedGroup.TeamName}" />
+                    FontSize="22"
+                    Text="{Binding SelectedGroup.TeamName}" FontWeight="Bold" />
             </StackPanel>
             <StackPanel x:Name="Telefon_Nummer" Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Text="Telefon nummer:" />
@@ -154,28 +153,6 @@
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:CallMethodAction MethodName="AddOneParticipant" TargetObject="{Binding SelectedGroup}" />
-                        </Core:EventTriggerBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                </Button>
-            </StackPanel>
-            <StackPanel x:Name="Fremmødte" Orientation="Horizontal">
-                <TextBlock VerticalAlignment="Center" Text="Fremmødte: " />
-                <Button Margin="10,0,0,0" Content="-">
-                    <Interactivity:Interaction.Behaviors>
-                        <Core:EventTriggerBehavior EventName="Click">
-                            <Core:CallMethodAction MethodName="RemoveOneAttending" TargetObject="{Binding SelectedGroup}" />
-                        </Core:EventTriggerBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                </Button>
-                <TextBox
-                    Margin="5,0,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Text="{Binding SelectedGroup.NumberOfAttendingParticipants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <Button Margin="10,0,0,0" Content="+">
-                    <Interactivity:Interaction.Behaviors>
-                        <Core:EventTriggerBehavior EventName="Click">
-                            <Core:CallMethodAction MethodName="AddOneAttending" TargetObject="{Binding SelectedGroup}" />
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
