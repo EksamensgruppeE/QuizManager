@@ -143,10 +143,15 @@ namespace QuizManager.ViewModel
                 SelectedDate.TotalParticipants += SelectedDate.Groups[i].Participants;
             }
         }
-        //metode til at tilføje nye grupper
+        //metode til at tilføje nye Datoer
         public void AddDate()
         {
             ModelEventsBasementSingleton.Instance.AddDate(new ModelDate(new DateTime(Year, Month, Day), EventType, TotalSeats));
+        }
+
+        public void RemoveDate()
+        {
+            ModelEventsBasementSingleton.Instance.RemoveDate(SelectedDate.Date);
         }
 
         #region Gruppe Metoder
