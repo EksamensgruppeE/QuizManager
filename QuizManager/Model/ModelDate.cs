@@ -152,10 +152,10 @@ namespace QuizManager.Model
 
         
         //Er det ikke bedre at have en lidt mere simpel constructor, som nedenstående? - Laura
-        public ModelDate(DateTime theDateTime, string eventType, int totalSeats)
+        public ModelDate(DateTime dateTime, string eventType, int totalSeats)
         {
 
-            TheDateTime = TheDateTime;
+            TheDateTime = dateTime;
             Date = $"{TheDateTime.Day}-{TheDateTime.Month}-{TheDateTime.Year}";
             EventType = eventType;
             Groups = new ObservableCollection<ModelGroup>();
