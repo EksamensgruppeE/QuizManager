@@ -148,7 +148,7 @@ namespace QuizManager.ViewModel
         {
             ModelEventsBasementSingleton.Instance.AddDate(new ModelDate(new DateTime(Year, Month, Day), EventType, TotalSeats));
         }
-
+        
         public void RemoveDate()
         {
             ModelEventsBasementSingleton.Instance.RemoveDate(SelectedDate.Date);
