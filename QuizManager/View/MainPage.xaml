@@ -127,7 +127,7 @@
                 RelativePanel.AlignRightWithPanel="True"
                 Style="{StaticResource StandardMenuButton}">
                 <Button.Flyout>
-                    <Flyout>
+                    <Flyout FlyoutPresenterStyle="{StaticResource FlyoutPresenterStyle}" Placement="Bottom">
                         <StackPanel>
                             <TextBox Width="200" PlaceholderText="Search" />
                             <Button
@@ -164,10 +164,10 @@
                         <ListBoxItem Name="BasementButton">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock
-                                    FontFamily="Segoe MDL2 Assets"
                                     FontSize="25"
+                                    FontWeight="Bold"
                                     Foreground="#f7c07f"
-                                    Text="&#xE8FA;" />
+                                    Text="Ba" />
                                 <TextBlock
                                     Margin="20,0,0,0"
                                     FontSize="20"
@@ -179,10 +179,10 @@
                         <ListBoxItem Name="AlpehyttenButton">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock
-                                    FontFamily="Segoe MDL2 Assets"
                                     FontSize="25"
+                                    FontWeight="Bold"
                                     Foreground="#dab250"
-                                    Text="&#xE716;" />
+                                    Text="Al" />
                                 <TextBlock
                                     Margin="20,0,0,0"
                                     FontSize="20"

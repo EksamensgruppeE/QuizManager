@@ -39,15 +39,18 @@
 
         <StackPanel Grid.RowSpan="2" Padding="5">
             <StackPanel
+                Background="#354357"
                 BorderBrush="#282b30"
-                BorderThickness="0,0,0,1"
+                BorderThickness="2,0,0,2"
+                CornerRadius="5,5,5,5"
                 Orientation="Horizontal">
                 <Button
+                    Width="80"
                     Background="{x:Null}"
                     Content="&#xE716;;"
                     FontFamily="Segoe MDL2 Assets"
                     FontSize="29"
-                    Foreground="White"
+                    Foreground="#282b30"
                     Style="{StaticResource StandardMenuButton}">
                     <Button.Flyout>
                         <Flyout FlyoutPresenterStyle="{StaticResource FlyoutPresenterStyle}" Placement="Right">
@@ -68,13 +71,13 @@
                                     Grid.Column="0"
                                     FontSize="20"
                                     Foreground="White"
-                                    Text="Dato" />
+                                    Text="Dato: " />
                                 <TextBlock
                                     Grid.Row="1"
                                     Grid.Column="0"
                                     FontSize="20"
                                     Foreground="White"
-                                    Text="Event navn" />
+                                    Text="Event Navn: " />
                                 <Button
                                     x:Name="Tilføj_event_knap"
                                     Grid.Row="2"
@@ -82,18 +85,19 @@
                                     Content="Tilføj Event"
                                     Foreground="White" />
 
-                                <CalendarDatePicker
+                                <TextBox
                                     Grid.Row="0"
                                     Grid.Column="1"
-                                    PlaceholderText="Event dato:" />
-
+                                    PlaceholderText="7-12-2018"
+                                    Text="date" />
 
 
 
                                 <TextBox
                                     Grid.Row="1"
                                     Grid.Column="1"
-                                    PlaceholderText="Event Navn:" />
+                                    PlaceholderText="Event Navn:"
+                                    Text="event" />
 
 
 
@@ -106,8 +110,10 @@
                     </Button.Flyout>
                 </Button>
                 <TextBlock
+                    Padding="10,0,0,0"
                     FontSize="20"
-                    Foreground="White"
+                    FontWeight="Bold"
+                    Foreground="#282b30"
                     Text="Tilføj Event" />
             </StackPanel>
             <ListView ItemsSource="{Binding Dates}" SelectedItem="{Binding SelectedDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -143,47 +149,82 @@
             Grid.Column="1"
             Padding="5">
             <StackPanel
+                Background="#354357"
                 BorderBrush="#282b30"
-                BorderThickness="0,0,0,1"
+                BorderThickness="2,0,0,2"
+                CornerRadius="5,5,5,5"
                 Orientation="Horizontal">
                 <Button
-                    x:Name="SearchButton"
+                    x:Name="Tilføj_gruppe"
+                    Width="80"
                     Background="{x:Null}"
                     Content="&#xE7EE;"
                     FontFamily="Segoe MDL2 Assets"
                     FontSize="29"
                     FontWeight="Bold"
-                    Foreground="White"
+                    Foreground="#282b30"
                     RelativePanel.AlignRightWithPanel="True"
                     Style="{StaticResource StandardMenuButton}">
 
                     <Button.Flyout>
                         <Flyout FlyoutPresenterStyle="{StaticResource FlyoutPresenterStyle}" Placement="Right">
-                            <StackPanel
-                                x:Name="Tilføj_gruppe"
-                                Padding="10"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top">
-                                <StackPanel
-                                    x:Name="Tilføj_gruppe_info"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Orientation="Horizontal">
-                                    <StackPanel Margin="0,0,5,0">
-                                        <TextBlock Foreground="White" Text="Holdnavn:" />
-                                        <TextBlock Foreground="White" Text="Tlf nummer:" />
-                                        <TextBlock Foreground="White" Text="Antal deltagere:" />
-                                        <TextBlock Foreground="White" Text="Bord Nr: " />
-                                    </StackPanel>
-                                    <StackPanel>
-                                        <TextBox Text="{Binding TeamName, Mode=TwoWay}" />
-                                        <TextBox Text="{Binding PhoneNumber, Mode=TwoWay}" />
-                                        <TextBox Text="{Binding Participants, Mode=TwoWay}" />
-                                        <TextBox Text="{Binding TableNr, Mode=TwoWay}" />
-                                    </StackPanel>
-                                </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Foreground="White"
+                                    Text="Holdnavn: " />
+                                <TextBlock
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Foreground="White"
+                                    Text="Tlf nummer: " />
+                                <TextBlock
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Foreground="White"
+                                    Text="Antal deltagere: " />
+                                <TextBlock
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Foreground="White"
+                                    Text="Bord Nr: " />
+
+
+                                <TextBox
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="{Binding TeamName, Mode=TwoWay}" />
+                                <TextBox
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding PhoneNumber, Mode=TwoWay}" />
+                                <TextBox
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Text="{Binding Participants, Mode=TwoWay}" />
+                                <TextBox
+                                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Text="{Binding TableNr, Mode=TwoWay}" />
+
+
                                 <Button
                                     x:Name="Tilføj_gruppe_knap"
+                                    Grid.Row="4"
+                                    Grid.Column="0"
                                     HorizontalAlignment="Center"
                                     Content="Tilføj Gruppe"
                                     Foreground="White">
@@ -193,19 +234,22 @@
                                         </Core:EventTriggerBehavior>
                                     </Interactivity:Interaction.Behaviors>
                                 </Button>
-                            </StackPanel>
 
+                            </Grid>
                         </Flyout>
                     </Button.Flyout>
                 </Button>
                 <TextBlock
+                    Padding="10,0,0,0"
                     FontSize="20"
-                    Foreground="White"
+                    FontWeight="Bold"
+                    Foreground="#282b30"
                     Text="Tilføj en gruppe" />
             </StackPanel>
-            <Grid MaxHeight="300">
+            <Grid MaxHeight="235">
                 <GridView
                     x:Name="Holdnavn_Grid"
+                    Padding="0,5,0,0"
                     ItemsSource="{Binding SelectedDate.Groups, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                     ScrollViewer.VerticalScrollMode="Enabled"
@@ -213,29 +257,40 @@
 
                     <GridView.ItemTemplate>
                         <DataTemplate>
-                            <Border
-                                Width="auto"
-                                Margin="1"
-                                BorderBrush="#FF060606"
-                                BorderThickness="1">
+
+
+
+                            <StackPanel
+                                Padding="5"
+                                Background="#424f62"
+                                BorderBrush="#282b30"
+                                BorderThickness="0,0,1,1"
+                                CornerRadius="2,2,2,2">
                                 <StackPanel x:Name="Gridview_datatemplate" Margin="5">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="0,0,0,0" Text="{Binding TeamName}" />
+                                    <StackPanel>
+                                        <TextBlock
+                                            FontWeight="Bold"
+                                            Foreground="#282b30"
+                                            Text="{Binding TeamName}" />
+                                        <TextBlock Text="-------------" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="Bord nummer #" />
-                                        <TextBlock Margin="0,0,0,0" Text="{Binding TableNr}" />
+                                        <TextBlock Foreground="#becbde" Text="Bord #" />
+                                        <TextBlock Foreground="#becbde" Text="{Binding TableNr}" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="Deltagere:" />
-                                        <TextBlock Margin="5,0,0,0" Text="{Binding Participants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBlock Foreground="#becbde" Text="Deltagere: " />
+                                        <TextBlock
+                                            Margin="5,0,0,0"
+                                            Foreground="White"
+                                            Text="{Binding Participants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="{Binding AllPaidMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                        <TextBlock Text="{Binding AllAttendingMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBlock Foreground="DarkGreen" Text="{Binding AllPaidMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBlock Foreground="#becbde" Text="{Binding AllAttendingMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
                                 </StackPanel>
-                            </Border>
+                            </StackPanel>
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
