@@ -20,15 +20,15 @@
                 <DataTemplate>
                     <Grid Padding="12" Background="LightSlateGray">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Dato" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <TextBlock Grid.Column="1" Text="Event" Style="{ThemeResource CaptionTextBlockStyle}"/>
@@ -46,15 +46,15 @@
                 <DataTemplate x:Name="TableDataTemplate">
                     <Grid Height="48" >
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="135"/>
-                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Date}" />
                         <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="{Binding EventType}"/>
