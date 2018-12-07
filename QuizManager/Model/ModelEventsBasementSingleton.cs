@@ -1,14 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using QuizManager.Annotations;
 
 namespace QuizManager.Model
 {
-    class ModelEventsBasementSingleton
+    class ModelEventsBasementSingleton : INotifyPropertyChanged
     {
+
+        #region PropertyChanged
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
+
         #region Instancefields
 
         private static ModelEventsBasementSingleton _instance = null;
@@ -25,7 +41,11 @@ namespace QuizManager.Model
         public ObservableCollection<ModelDate> BasementDates
         {
             get { return _dates; }
-            set { _dates = value; }
+            set
+            {
+                _dates = value;
+                OnPropertyChanged();
+            }
         }
 
         
@@ -76,9 +96,9 @@ namespace QuizManager.Model
 
         public void AddTest()
         {
-            _dates.Add(new ModelDate(21, 11, 2018, "MusikQuiz", 52));
-            _dates.Add(new ModelDate(23, 11, 2018, "DisneyQuiz", 38));
-            _dates.Add(new ModelDate(01, 11, 2018, "Bingo", 55));
+            _dates.Add(new ModelDate(new DateTime(21, 11, 2018),  "MusikQuiz", 52));
+            _dates.Add(new ModelDate(new DateTime(23, 11, 2018),  "DisneyQuiz", 38));
+            _dates.Add(new ModelDate(new DateTime(01, 11, 2018), "Bingo", 55));
             BasementDates[0].AddGroup(new ModelGroup("Russerne", "10203040", 7, 1));
             BasementDates[0].AddGroup(new ModelGroup("StupidTeamName", "20304050", 3, 1));
             BasementDates[0].AddGroup(new ModelGroup("Gede Hviskerne", "30405060", 12, 3));
