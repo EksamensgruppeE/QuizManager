@@ -26,7 +26,6 @@ namespace QuizManager.ViewModel
         }
         #endregion
 
-        
         #region Instancefields
         
         //disse 2 felter tilhører tilsvarende properties i Properties Tabben
@@ -58,15 +57,15 @@ namespace QuizManager.ViewModel
         //end Mosbæk
         #endregion
 
-        //property der har med Dato at gøre
-        public string Date { get; set; }
-
 
         #region Properties
-
+        //properties som bruges til at oprette nye datoer med
         private int Year { get; set; }
         private int Month { get; set; }
         private int Day { get; set; }
+        public string EventType { get; set; }
+
+        public int TotalSeats { get; set; }
 
         //SelectedDate property som kan bruges til at få fat i properties hos en valgt ModelDate
         public ModelDate SelectedDate
@@ -105,10 +104,6 @@ namespace QuizManager.ViewModel
 
         #endregion
 
-
-
-        
-
         
         #region Constructor
 
@@ -138,21 +133,6 @@ namespace QuizManager.ViewModel
             SelectedDate.TotalSeats--;
         }
 
-        //tilføje nye grupper via GUI'en, samt opdatere TotalParticipants
-        public void AddGroup()
-        {
-            SelectedDate.AddGroup(new ModelGroup(TeamName, PhoneNumber, Participants, TableNr));
-            SelectedDate.TotalParticipants += Participants;
-
-        }
-
-
-        //fjernelse af grupper via GUI'en
-        public void RemoveGroup()
-        {
-            SelectedDate.RemoveGroup(SelectedGroup.TeamName);
-        }
-        
 
         //metode der løber listen af grupper igennem opdaterer TotalParticipants med participants fra hver gruppe.
         public void CheckTotalParticipants()
@@ -163,10 +143,33 @@ namespace QuizManager.ViewModel
                 SelectedDate.TotalParticipants += SelectedDate.Groups[i].Participants;
             }
         }
+        //metode til at tilføje nye grupper
+        public void AddDate()
+        {
+            ModelEventsBasementSingleton.Instance.AddDate(new ModelDate(new DateTime(Year, Month, Day), EventType, TotalSeats));
+        }
+
+        #region Gruppe Metoder
+
+        //tilføje nye grupper via GUI'en, samt opdatere TotalParticipants
+        public void AddGroup()
+        {
+            SelectedDate.AddGroup(new ModelGroup(TeamName, PhoneNumber, Participants, TableNr));
+            SelectedDate.TotalParticipants += Participants;
+
+        }
+
+        //fjernelse af grupper via GUI'en
+        public void RemoveGroup()
+        {
+            SelectedDate.RemoveGroup(SelectedGroup.TeamName);
+        }
 
         #endregion
 
-        
+        #endregion
+
+
 
     }
 }
