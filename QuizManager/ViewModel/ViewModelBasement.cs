@@ -35,6 +35,10 @@ namespace QuizManager.ViewModel
         private ModelGroup _selectedGroup;
         private ModelDate _selectedDate;
 
+       
+
+
+
         #endregion
 
         //properties som skal bruges til at oprette nye grupper fra GUI
@@ -55,13 +59,17 @@ namespace QuizManager.ViewModel
 
         public int NumberOfAttendingParticipants { get; set; }
 
+
+
+
         //end Mosbæk
         #endregion
 
-        //property der har med Dato at gøre
-        public string Date { get; set; }
 
-        
+
+
+
+
         #region Properties
 
         //SelectedDate property som kan bruges til at få fat i properties hos en valgt ModelDate
@@ -99,13 +107,17 @@ namespace QuizManager.ViewModel
             }
         }
 
+
+
+    
+
         #endregion
 
 
 
-        
 
-        
+
+
         #region Empty Constructor
 
 
@@ -143,6 +155,7 @@ namespace QuizManager.ViewModel
         }
 
 
+
         //fjernelse af grupper via GUI'en
         public void RemoveGroup()
         {
@@ -159,6 +172,9 @@ namespace QuizManager.ViewModel
                 SelectedDate.TotalParticipants += SelectedDate.Groups[i].Participants;
             }
         }
+
+ 
+
 
         #endregion
 
