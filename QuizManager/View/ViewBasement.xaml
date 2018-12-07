@@ -304,123 +304,123 @@
 
 
 
-                <!--  Edit groups - Laura  -->
-                <Border  BorderBrush="Black" BorderThickness="1" Grid.Column="2" >
-                    <StackPanel 
+        <!--  Edit groups - Laura  -->
+        <Border  BorderBrush="Black" BorderThickness="1" Grid.Column="2" >
+            <StackPanel 
             x:Name="Hold_Info"
             Grid.Row="0"
 
             Grid.Column="2"
             Padding="5">
-            <StackPanel
+                <StackPanel
 
                 x:Name="Holdnavn"
                 Margin="0,0,0,20"
                 Orientation="Horizontal">
-                            <TextBlock
+                    <TextBlock
                     VerticalAlignment="Center"
                     FontSize="14"
                     Text="Team" />
-                            <TextBlock
+                    <TextBlock
                     Margin="5,0,0,0"
                     VerticalAlignment="Center"
                     FontSize="20"
                     Text="{Binding SelectedGroup.TeamName}" />
-                        </StackPanel>
-                        <StackPanel x:Name="Telefon_Nummer" Orientation="Horizontal">
-                            <TextBlock VerticalAlignment="Center" Text="Telefon nummer:" />
-                            <TextBlock Margin="5,0,0,0" Text="{Binding SelectedGroup.PhoneNumber}" />
-                        </StackPanel>
-                        <StackPanel x:Name="Antal_Deltager" Orientation="Horizontal">
-                            <TextBlock VerticalAlignment="Center" Text="Antal deltagere: " />
-                            <Button Margin="10,0,0,0" Content="-">
-                                <Interactivity:Interaction.Behaviors>
-                                    <Core:EventTriggerBehavior EventName="Click">
-                                        <Core:CallMethodAction MethodName="RemoveOneParticipant" TargetObject="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                    </Core:EventTriggerBehavior>
-                                </Interactivity:Interaction.Behaviors>
-                            </Button>
-                            <TextBox
+                </StackPanel>
+                <StackPanel x:Name="Telefon_Nummer" Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="Telefon nummer:" />
+                    <TextBlock Margin="5,0,0,0" Text="{Binding SelectedGroup.PhoneNumber}" />
+                </StackPanel>
+                <StackPanel x:Name="Antal_Deltager" Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="Antal deltagere: " />
+                    <Button Margin="10,0,0,0" Content="-">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:CallMethodAction MethodName="RemoveOneParticipant" TargetObject="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
+                    <TextBox
                     Margin="5,0,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Text="{Binding SelectedGroup.Participants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                            <Button Margin="10,0,0,0" Content="+">
-                                <Interactivity:Interaction.Behaviors>
-                                    <Core:EventTriggerBehavior EventName="Click">
-                                        <Core:CallMethodAction MethodName="AddOneParticipant" TargetObject="{Binding SelectedGroup}" />
-                                    </Core:EventTriggerBehavior>
-                                </Interactivity:Interaction.Behaviors>
-                            </Button>
-                        </StackPanel>
-                        <StackPanel x:Name="Fremmødte" Orientation="Horizontal">
-                            <TextBlock VerticalAlignment="Center" Text="Fremmødte: " />
-                            <Button Margin="10,0,0,0" Content="-">
-                                <Interactivity:Interaction.Behaviors>
-                                    <Core:EventTriggerBehavior EventName="Click">
-                                        <Core:CallMethodAction MethodName="RemoveOneAttending" TargetObject="{Binding SelectedGroup}" />
-                                    </Core:EventTriggerBehavior>
-                                </Interactivity:Interaction.Behaviors>
-                            </Button>
-                            <TextBox
+                    <Button Margin="10,0,0,0" Content="+">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:CallMethodAction MethodName="AddOneParticipant" TargetObject="{Binding SelectedGroup}" />
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
+                </StackPanel>
+                <StackPanel x:Name="Fremmødte" Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="Fremmødte: " />
+                    <Button Margin="10,0,0,0" Content="-">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:CallMethodAction MethodName="RemoveOneAttending" TargetObject="{Binding SelectedGroup}" />
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
+                    <TextBox
                     Margin="5,0,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Text="{Binding SelectedGroup.NumberOfAttendingParticipants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                            <Button Margin="10,0,0,0" Content="+">
-                                <Interactivity:Interaction.Behaviors>
-                                    <Core:EventTriggerBehavior EventName="Click">
-                                        <Core:CallMethodAction MethodName="AddOneAttending" TargetObject="{Binding SelectedGroup}" />
-                                    </Core:EventTriggerBehavior>
-                                </Interactivity:Interaction.Behaviors>
-                            </Button>
-                        </StackPanel>
-                        <StackPanel x:Name="Bord_Nummer" Orientation="Horizontal">
-                            <TextBlock Text="Bord nr # " />
-                            <TextBlock Text="{Binding SelectedGroup.TableNr}" />
-                        </StackPanel>
-                        <StackPanel x:Name="Betalt" Orientation="Horizontal">
-                            <TextBlock VerticalAlignment="Center" Text="Betalt: " />
-                            <Button Margin="10,0,0,0" Content="-">
-                                <Interactivity:Interaction.Behaviors>
-                                    <Core:EventTriggerBehavior EventName="Click">
-                                        <Core:CallMethodAction MethodName="RemoveOnePayment" TargetObject="{Binding SelectedGroup}" />
-                                    </Core:EventTriggerBehavior>
-                                </Interactivity:Interaction.Behaviors>
-                            </Button>
-                            <TextBox
+                    <Button Margin="10,0,0,0" Content="+">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:CallMethodAction MethodName="AddOneAttending" TargetObject="{Binding SelectedGroup}" />
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
+                </StackPanel>
+                <StackPanel x:Name="Bord_Nummer" Orientation="Horizontal">
+                    <TextBlock Text="Bord nr # " />
+                    <TextBlock Text="{Binding SelectedGroup.TableNr}" />
+                </StackPanel>
+                <StackPanel x:Name="Betalt" Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="Betalt: " />
+                    <Button Margin="10,0,0,0" Content="-">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:CallMethodAction MethodName="RemoveOnePayment" TargetObject="{Binding SelectedGroup}" />
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
+                    <TextBox
                     Margin="5,0,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Text="{Binding SelectedGroup.NumberOfPayments, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                <Button Margin="10,0,0,0" Content="+">
-                    <Interactivity:Interaction.Behaviors>
-                        <Core:EventTriggerBehavior EventName="Click">
-                            <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding SelectedGroup}" />
-                        </Core:EventTriggerBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                </Button>
-            </StackPanel>
-            <Button
+                    <Button Margin="10,0,0,0" Content="+">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding SelectedGroup}" />
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
+                </StackPanel>
+                <Button
                 x:Name="SletGruppe"
                 Margin="0,100,0,0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Content="Slet Gruppe">
-                <Interactivity:Interaction.Behaviors>
-                    <Core:EventTriggerBehavior EventName="Click">
-                        <Core:CallMethodAction MethodName="RemoveGroup" TargetObject="{Binding Mode=OneWay}" />
-                    </Core:EventTriggerBehavior>
-                </Interactivity:Interaction.Behaviors>
-            </Button>
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="RemoveGroup" TargetObject="{Binding Mode=OneWay}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
 
-                           
-                    </StackPanel>
-                </Border>
-            
 
-       
+            </StackPanel>
+        </Border>
+
+
+
 
 
 
@@ -432,14 +432,14 @@
             Grid.ColumnSpan="2">
 
             <TextBlock
-                FontSize="36"
+                FontSize="24"
                 Foreground="#FF0D0D0D"
                 Text="Informationer For Det Valgte Event"
                 TextWrapping="Wrap" />
             <StackPanel
                 x:Name="Events"
                 Margin="0,20,0,0"
-                Orientation="Horizontal">
+                Orientation="Horizontal" Height="220">
 
                 <StackPanel x:Name="Events1" Orientation="Vertical">
                     <StackPanel
@@ -463,20 +463,6 @@
                             Text="{Binding SelectedDate.TotalSeats, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
-                            x:Name="Add_Seat"
-                            Width="30"
-                            Height="42"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Content="+">
-                            <Interactivity:Interaction.Behaviors>
-                                <Core:EventTriggerBehavior EventName="Click">
-                                    <Core:CallMethodAction MethodName="AddSeat" TargetObject="{Binding Mode=OneWay}" />
-                                </Core:EventTriggerBehavior>
-                            </Interactivity:Interaction.Behaviors>
-
-                        </Button>
-                        <Button
                             x:Name="Subtract_Seat"
                             Width="30"
                             Height="42"
@@ -486,6 +472,20 @@
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction MethodName="SubtractSeat" TargetObject="{Binding Mode=OneWay}" />
+                                </Core:EventTriggerBehavior>
+                            </Interactivity:Interaction.Behaviors>
+
+                        </Button>
+                        <Button
+                            x:Name="Add_Seat"
+                            Width="30"
+                            Height="42"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Content="+">
+                            <Interactivity:Interaction.Behaviors>
+                                <Core:EventTriggerBehavior EventName="Click">
+                                    <Core:CallMethodAction MethodName="AddSeat" TargetObject="{Binding Mode=OneWay}" />
                                 </Core:EventTriggerBehavior>
                             </Interactivity:Interaction.Behaviors>
 
@@ -599,7 +599,7 @@
                 </StackPanel>
                 <StackPanel
                     x:Name="Events2"
-                    Margin="180,0,0,0"
+                    Margin="50,0,0,0"
                     Orientation="Vertical">
                     <StackPanel
                         x:Name="TotalParticipants"
@@ -752,7 +752,7 @@
 
     </Grid>
 
-  
+
 
 
 
