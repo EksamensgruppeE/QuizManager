@@ -96,9 +96,9 @@ namespace QuizManager.Model
 
         public void AddTest()
         {
-            _dates.Add(new ModelDate(new DateTime(21, 11, 2018),  "MusikQuiz", 52));
-            _dates.Add(new ModelDate(new DateTime(23, 11, 2018),  "DisneyQuiz", 38));
-            _dates.Add(new ModelDate(new DateTime(01, 11, 2018), "Bingo", 55));
+            _dates.Add(new ModelDate(new DateTime(2018, 11, 21),  "MusikQuiz", 52));
+            _dates.Add(new ModelDate(new DateTime(2018, 11, 23),  "DisneyQuiz", 38));
+            _dates.Add(new ModelDate(new DateTime(2018, 11, 01), "Bingo", 55));
             BasementDates[0].AddGroup(new ModelGroup("Russerne", "10203040", 7, 1));
             BasementDates[0].AddGroup(new ModelGroup("StupidTeamName", "20304050", 3, 1));
             BasementDates[0].AddGroup(new ModelGroup("Gede Hviskerne", "30405060", 12, 3));
