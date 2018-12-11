@@ -206,109 +206,218 @@
 
 
         <!--  Edit groups - Laura  -->
-        <Border  BorderBrush="Black" BorderThickness="1" Grid.Column="2" >
-            <StackPanel 
-            x:Name="Hold_Info"
-            Grid.Row="0"
+        <Grid Grid.Column="2" Padding="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
 
-            Grid.Column="2"
-            Padding="5">
-                <StackPanel
+            </Grid.RowDefinitions>
 
-                x:Name="Holdnavn"
-                Margin="0,0,0,20"
+            <StackPanel
+                Grid.ColumnSpan="2"
+                Background="#354357"
+                BorderBrush="#282b30"
+                BorderThickness="2,0,0,2"
+                CornerRadius="5,5,5,5"
                 Orientation="Horizontal">
-                    <TextBlock
-                    VerticalAlignment="Center"
-                    FontSize="14"
-                    Text="Team" />
-                    <TextBlock
-                    Margin="5,0,0,0"
-                    VerticalAlignment="Center"
-                    FontSize="20"
-                    Text="{Binding SelectedGroup.TeamName}" />
-                </StackPanel>
-                <StackPanel x:Name="Telefon_Nummer" Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="Telefon nummer:" />
-                    <TextBlock Margin="5,0,0,0" Text="{Binding SelectedGroup.PhoneNumber}" />
-                </StackPanel>
-                <StackPanel x:Name="Antal_Deltager" Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="Antal deltagere: " />
-                    <Button Margin="10,0,0,0" Content="-">
-                        <Interactivity:Interaction.Behaviors>
-                            <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="RemoveOneParticipant" TargetObject="{Binding Mode=OneWay}" />
-                            </Core:EventTriggerBehavior>
-                        </Interactivity:Interaction.Behaviors>
-                    </Button>
-                    <TextBox
-                    Margin="5,0,0,0"
+
+
+
+                <TextBlock
+                    Height="40"
+                    Padding="10,0,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="#282b30"
+                    Text="Rediger gruppe" />
+            </StackPanel>
+
+
+
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Padding="5"
+                VerticalAlignment="Center"
+                FontSize="14"
+                FontWeight="Bold"
+                Foreground="#282b30"
+                Text="Team" />
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                FontSize="20"
+                Foreground="White"
+                Text="{Binding SelectedGroup.TeamName}" />
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Padding="5"
+                VerticalAlignment="Center"
+                FontWeight="Bold"
+                Foreground="#282b30"
+                Text="Telefon nummer:" />
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="{Binding SelectedGroup.PhoneNumber}" />
+
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="0"
+                Padding="5"
+                VerticalAlignment="Center"
+                FontWeight="Bold"
+                Foreground="#282b30"
+                Text="Bord nr # " />
+            <TextBlock
+                Grid.Row="3"
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Foreground="White"
+                Text="{Binding SelectedGroup.TableNr}" />
+
+            <TextBlock
+                Grid.Row="4"
+                Grid.Column="0"
+                Padding="5"
+                VerticalAlignment="Center"
+                FontWeight="Bold"
+                Foreground="#282b30"
+                Text="Antal deltagere: " />
+            <StackPanel
+                Grid.Row="4"
+                Grid.Column="1"
+                Orientation="Horizontal">
+                <Button Margin="5,0,0,0" Content="-">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="RemoveOneParticipant" TargetObject="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+                <TextBox
+                    Margin="5,0,0,0"
+                    VerticalAlignment="Center"
                     Text="{Binding SelectedGroup.Participants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <Button Margin="10,0,0,0" Content="+">
-                        <Interactivity:Interaction.Behaviors>
-                            <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="AddOneParticipant" TargetObject="{Binding Mode=OneWay}" />
-                            </Core:EventTriggerBehavior>
-                        </Interactivity:Interaction.Behaviors>
-                    </Button>
-                </StackPanel>
-                <StackPanel x:Name="Fremmødte" Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="Fremmødte: " />
-                    <Button Margin="10,0,0,0" Content="-">
-                        <Interactivity:Interaction.Behaviors>
-                            <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="RemoveOneAttending" TargetObject="{Binding Mode=OneWay}" />
-                            </Core:EventTriggerBehavior>
-                        </Interactivity:Interaction.Behaviors>
-                    </Button>
-                    <TextBox
+                <Button Margin="5,0,0,0" Content="+">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="AddOneParticipant" TargetObject="{Binding SelectedGroup}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+            </StackPanel>
+            <TextBlock
+                Grid.Row="5"
+                Grid.Column="0"
+                Padding="5"
+                VerticalAlignment="Center"
+                FontWeight="Bold"
+                Foreground="#282b30"
+                Text="Betalte: " />
+            <TextBlock
+                Grid.Row="6"
+                Grid.Column="0"
+                Padding="5"
+                VerticalAlignment="Center"
+                FontWeight="Bold"
+                Foreground="#282b30"
+                Text="Antal deltagere: " />
+            <StackPanel
+                Grid.Row="6"
+                Grid.Column="1"
+                Orientation="Horizontal">
+
+                <Button Margin="5,0,0,0" Content="-">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="RemoveOneAttending" TargetObject="{Binding SelectedGroup}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+                <TextBox
                     Margin="5,0,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Text="{Binding SelectedGroup.NumberOfAttendingParticipants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                    <Button Margin="10,0,0,0" Content="+">
-                        <Interactivity:Interaction.Behaviors>
-                            <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="AddOneAttending" TargetObject="{Binding Mode=OneWay}" />
-                            </Core:EventTriggerBehavior>
-                        </Interactivity:Interaction.Behaviors>
-                    </Button>
-                </StackPanel>
-                <StackPanel x:Name="Bord_Nummer" Orientation="Horizontal">
-                    <TextBlock Text="Bord nr # " />
-                    <TextBlock Text="{Binding SelectedGroup.TableNr}" />
-                </StackPanel>
-                <StackPanel x:Name="Betalt" Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="Betalt: " />
-                    <Button Margin="10,0,0,0" Content="-">
-                        <Interactivity:Interaction.Behaviors>
-                            <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="RemoveOnePayment" TargetObject="{Binding Mode=OneWay}" />
-                            </Core:EventTriggerBehavior>
-                        </Interactivity:Interaction.Behaviors>
-                    </Button>
-                    <TextBox
+                <Button Margin="5,0,0,0" Content="+">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="AddOneAttending" TargetObject="{Binding SelectedGroup}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+            </StackPanel>
+
+
+            <StackPanel
+                Grid.Row="5"
+                Grid.Column="1"
+                Orientation="Horizontal">
+
+                <Button Margin="5,0,0,0" Content="-">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="RemoveOnePayment" TargetObject="{Binding SelectedGroup}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+                <TextBox
                     Margin="5,0,0,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Text="{Binding SelectedGroup.NumberOfPayments, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <Button Margin="10,0,0,0" Content="+">
-                        <Interactivity:Interaction.Behaviors>
-                            <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding Mode=OneWay}" />
-                            </Core:EventTriggerBehavior>
-                        </Interactivity:Interaction.Behaviors>
-                    </Button>
-                </StackPanel>
+                <Button Margin="5,0,0,0" Content="+">
+                    <Interactivity:Interaction.Behaviors>
+                        <Core:EventTriggerBehavior EventName="Click">
+                            <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding SelectedGroup}" />
+                        </Core:EventTriggerBehavior>
+                    </Interactivity:Interaction.Behaviors>
+                </Button>
+            </StackPanel>
+
+            <StackPanel
+                Grid.Row="7"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Orientation="Horizontal">
+                <TextBlock
+                    Padding="5,0,0,0"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="#282b30"
+                    Text="Slet gruppe" />
                 <Button
-                x:Name="SletGruppe"
-                Margin="0,100,0,0"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Content="Slet Gruppe">
+                    x:Name="Slet_gruppe"
+                    Width="80"
+                    VerticalAlignment="Center"
+                    Background="{x:Null}"
+                    Content="&#xE7EE;"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="29"
+                    FontWeight="Bold"
+                    Foreground="#282b30"
+                    Style="{StaticResource StandardMenuButton}">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:CallMethodAction MethodName="RemoveGroup" TargetObject="{Binding Mode=OneWay}" />
@@ -316,9 +425,10 @@
                     </Interactivity:Interaction.Behaviors>
                 </Button>
 
-
             </StackPanel>
-        </Border>
+
+
+        </Grid>
 
 
 
@@ -330,7 +440,8 @@
             x:Name="Event_Plads"
             Grid.Row="1"
             Grid.Column="0"
-            Grid.ColumnSpan="2" Margin="20,0,0,0">
+            Grid.ColumnSpan="2"
+            Margin="20,0,0,0">
 
             <TextBlock
                 FontSize="24"
@@ -339,8 +450,9 @@
                 TextWrapping="Wrap" />
             <StackPanel
                 x:Name="Events"
+                Height="220"
                 Margin="0,20,0,0"
-                Orientation="Horizontal" Height="220">
+                Orientation="Horizontal">
 
                 <StackPanel x:Name="Events1" Orientation="Vertical">
                     <StackPanel
@@ -349,9 +461,10 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            Margin="0,5,0,0"
                             FontSize="22"
                             Text="Antal Stole I Alt:"
-                            TextWrapping="Wrap" Margin="0,5,0,0" />
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser"
                             Width="120"
@@ -398,9 +511,10 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            Margin="0,5,0,0"
                             FontSize="22"
                             Text="Total Omsætning:"
-                            TextWrapping="Wrap" Margin="0,5,0,0" />
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="TotalOmsætning"
                             Width="120"
@@ -433,9 +547,10 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            Margin="0,5,0,0"
                             FontSize="22"
                             Text="Omsætning Fra 20 - 24:"
-                            TextWrapping="Wrap" Margin="0,5,0,0" />
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Omsætning20To24"
                             Width="120"
@@ -468,9 +583,10 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            Margin="0,5,0,0"
                             FontSize="22"
                             Text="Omsætning Fra 24 - Lukketid:"
-                            TextWrapping="Wrap" Margin="0,5,0,0" />
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Omæstning24ToClose"
                             Width="120"
@@ -508,9 +624,10 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="374"
+                            Margin="0,5,0,0"
                             FontSize="22"
                             Text="Deltagere I Alt:"
-                            TextWrapping="Wrap" Margin="0,5,0,0" />
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="TotalParticipants1"
                             Width="120"
@@ -543,9 +660,10 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="374"
+                            Margin="0,5,0,0"
                             FontSize="22"
                             Text="Total Quiz Omsætning:"
-                            TextWrapping="Wrap" Margin="0,5,0,0" />
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="TotalQuizRevenue1"
                             Width="120"
@@ -578,9 +696,10 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="374"
+                            Margin="0,5,0,0"
                             FontSize="22"
                             Text="Total Omsætning For Quiz Deltagere: "
-                            TextWrapping="Wrap" Margin="0,5,0,0" />
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="TotalRevenueQuizParticipants2"
                             Width="120"
@@ -613,9 +732,10 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="374"
+                            Margin="0,5,0,0"
                             FontSize="22"
                             Text="Omsætning Af Quiz Tilbud: "
-                            TextWrapping="Wrap" Margin="0,5,0,0" />
+                            TextWrapping="Wrap" />
                         <TextBox
                             x:Name="RevenueQuizOffers2"
                             Width="120"
