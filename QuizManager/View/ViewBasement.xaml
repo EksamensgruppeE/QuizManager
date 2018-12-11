@@ -259,7 +259,7 @@
                     <Button Margin="10,0,0,0" Content="-">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="RemoveOneAttending" TargetObject="{Binding SelectedGroup}" />
+                                <Core:CallMethodAction MethodName="RemoveOneAttending" TargetObject="{Binding Mode=OneWay}" />
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
@@ -271,7 +271,7 @@
                     <Button Margin="10,0,0,0" Content="+">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="AddOneAttending" TargetObject="{Binding SelectedGroup}" />
+                                <Core:CallMethodAction MethodName="AddOneAttending" TargetObject="{Binding Mode=OneWay}" />
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
@@ -285,7 +285,7 @@
                     <Button Margin="10,0,0,0" Content="-">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="RemoveOnePayment" TargetObject="{Binding SelectedGroup}" />
+                                <Core:CallMethodAction MethodName="RemoveOnePayment" TargetObject="{Binding Mode=OneWay}" />
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>
@@ -298,7 +298,7 @@
                     <Button Margin="10,0,0,0" Content="+">
                         <Interactivity:Interaction.Behaviors>
                             <Core:EventTriggerBehavior EventName="Click">
-                                <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding SelectedGroup}" />
+                                <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding Mode=OneWay}" />
                             </Core:EventTriggerBehavior>
                         </Interactivity:Interaction.Behaviors>
                     </Button>

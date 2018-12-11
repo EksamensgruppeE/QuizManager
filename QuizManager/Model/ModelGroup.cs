@@ -44,9 +44,9 @@ namespace QuizManager.Model
             set
             {
                 _numberOfPayments = value;
-                OnPropertyChanged();
                 if (NumberOfPayments >= Participants) AllPaidMessage = "Alle betalt";
                 if (NumberOfPayments < Participants) AllPaidMessage = "";
+                OnPropertyChanged();
             }
         }
 
