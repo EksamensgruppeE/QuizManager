@@ -173,7 +173,7 @@
                                             FontWeight="Bold"
                                             Foreground="#282b30"
                                             Text="{Binding TeamName}" />
-                                        <TextBlock Text="-------------" />
+                                        <TextBlock Text="----------------" />
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Foreground="#becbde" Text="Bord #" />
@@ -187,8 +187,8 @@
                                             Text="{Binding Participants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock Foreground="DarkGreen" Text="{Binding AllPaidMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                        <TextBlock Foreground="#becbde" Text="{Binding AllAttendingMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBlock Foreground="#FF26D726" Text="{Binding AllPaidMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                        <TextBlock Foreground="#FF26D726" Text="{Binding AllAttendingMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
@@ -309,7 +309,7 @@
                 <Button Margin="5,0,0,0" Content="-">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
-                            <Core:CallMethodAction MethodName="RemoveOneParticipant" TargetObject="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <Core:CallMethodAction MethodName="RemoveOneParticipant" TargetObject="{Binding Mode=OneWay}" />
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
@@ -320,7 +320,7 @@
                 <Button Margin="5,0,0,0" Content="+">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
-                            <Core:CallMethodAction MethodName="AddOneParticipant" TargetObject="{Binding SelectedGroup}" />
+                            <Core:CallMethodAction MethodName="AddOneParticipant" TargetObject="{Binding Mode=OneWay}" />
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
@@ -349,7 +349,7 @@
                 <Button Margin="5,0,0,0" Content="-">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
-                            <Core:CallMethodAction MethodName="RemoveOneAttending" TargetObject="{Binding SelectedGroup}" />
+                            <Core:CallMethodAction MethodName="RemoveOneAttending" TargetObject="{Binding Mode=OneWay}" />
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
@@ -361,7 +361,7 @@
                 <Button Margin="5,0,0,0" Content="+">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
-                            <Core:CallMethodAction MethodName="AddOneAttending" TargetObject="{Binding SelectedGroup}" />
+                            <Core:CallMethodAction MethodName="AddOneAttending" TargetObject="{Binding Mode=OneWay}" />
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
@@ -376,7 +376,7 @@
                 <Button Margin="5,0,0,0" Content="-">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
-                            <Core:CallMethodAction MethodName="RemoveOnePayment" TargetObject="{Binding SelectedGroup}" />
+                            <Core:CallMethodAction MethodName="RemoveOnePayment" TargetObject="{Binding Mode=OneWay}" />
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
@@ -389,7 +389,7 @@
                 <Button Margin="5,0,0,0" Content="+">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
-                            <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding SelectedGroup}" />
+                            <Core:CallMethodAction MethodName="AddOnePayment" TargetObject="{Binding Mode=OneWay}" />
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
@@ -443,11 +443,22 @@
             Grid.ColumnSpan="2"
             Margin="20,0,0,0">
 
-            <TextBlock
-                FontSize="24"
-                Foreground="#FF0D0D0D"
-                Text="Informationer For Det Valgte Event"
-                TextWrapping="Wrap" />
+            <StackPanel x:Name="TitlePanel" Orientation="Vertical" 
+                        Background="#354357"
+                        BorderBrush="#282b30"
+                        BorderThickness="2,0,0,2"
+                        CornerRadius="5,5,5,5" Margin="-15,0,0,0">
+                
+
+                <TextBlock
+                    Height="40"
+                    Padding="10,0,0,0"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="#282b30"
+                    Text="Informationer For Det Valgte Event"
+                    TextWrapping="Wrap" Margin="-2,0,0,0" />
+            </StackPanel>
             <StackPanel
                 x:Name="Events"
                 Height="220"

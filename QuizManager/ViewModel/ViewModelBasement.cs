@@ -79,7 +79,10 @@ namespace QuizManager.ViewModel
             {
                 _selectedDate = value;
                 OnPropertyChanged();
-                CheckTotalParticipants();
+                if (SelectedDate != null)
+                {
+                    CheckTotalParticipants();
+                }
             }
         }
 
@@ -217,7 +220,7 @@ namespace QuizManager.ViewModel
         public void AddOneAttending()
         {
             if (SelectedGroup.NumberOfAttendingParticipants < SelectedGroup.Participants) SelectedGroup.NumberOfAttendingParticipants++;
-            if (SelectedGroup.NumberOfAttendingParticipants >= SelectedGroup.Participants) SelectedGroup.AllAttendingMessage = "Alle fremmødt";
+            if (SelectedGroup.NumberOfAttendingParticipants >= SelectedGroup.Participants) SelectedGroup.AllAttendingMessage = "Alle Mødt";
         }
 
         //fjernelse af 1 tilstedeværende deltager (vedkommende er taget hjem eller har aflyst
