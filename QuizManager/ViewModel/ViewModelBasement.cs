@@ -64,9 +64,9 @@ namespace QuizManager.ViewModel
 
         #region Properties
         //properties som bruges til at oprette nye datoer med
-        private int Year { get; set; }
-        private int Month { get; set; }
-        private int Day { get; set; }
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public int Day { get; set; }
         public string EventType { get; set; }
 
         public int TotalSeats { get; set; }
@@ -187,6 +187,7 @@ namespace QuizManager.ViewModel
         public void AddOneParticipant()
         {
             SelectedGroup.Participants++;
+            if (SelectedGroup.NumberOfPayments<SelectedGroup.Participants) SelectedGroup.AllPaidMessage = "";
         }
 
         //fjernelse af 1 deltager
@@ -206,7 +207,7 @@ namespace QuizManager.ViewModel
         public void RemoveOnePayment()
         {
             if (SelectedGroup.NumberOfPayments > 0) SelectedGroup.NumberOfPayments--;
-            if (SelectedGroup.NumberOfPayments < SelectedGroup.Participants) SelectedGroup.AllPaidMessage = "";
+            SelectedGroup.AllPaidMessage = "";
         }
 
         //tilføjelse af 1 tilstedeværende deltager (vedkommende er dukket op)
