@@ -114,7 +114,7 @@ namespace QuizManager.ViewModel
 
         #endregion
 
-        #region Empty Constructor
+        
 
         
         #region Constructor
