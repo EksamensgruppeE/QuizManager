@@ -54,6 +54,8 @@ namespace QuizManager.ViewModel
 
         public int NumberOfPayments { get; set; }
 
+        public string AllPayed { get; set; }
+
         public int NumberOfAttendingParticipants { get; set; }
 
 
