@@ -32,7 +32,7 @@ namespace QuizManager.ViewModel
         
         private ObservableCollection<ModelDate> _dates;
         private ModelGroup _selectedGroup;
-        private ModelDate _selectedDate;
+        private static ModelDate _selectedDate;
 
        
 

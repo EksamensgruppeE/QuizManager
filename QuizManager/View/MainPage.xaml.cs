@@ -27,7 +27,7 @@ namespace QuizManager
         {
             this.InitializeComponent();
             // Load Main.xaml in the main frame of MainPage.xaml
-            MainFrame.Navigate(typeof(ViewBasement));
+            MainFrame.Navigate(typeof(ViewBasementDate));
 
         }
 
@@ -63,7 +63,7 @@ namespace QuizManager
             {
                 if (BasementButton.IsSelected)
                 {
-                    MainFrame.Navigate(typeof(ViewBasement));
+                    MainFrame.Navigate(typeof(ViewBasementDate));
                     YouAreHere.Text = "Basement";
 
                 }
