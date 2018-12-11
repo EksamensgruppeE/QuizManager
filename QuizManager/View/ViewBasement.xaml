@@ -402,7 +402,7 @@
                             Text="Total Omsætning:"
                             TextWrapping="Wrap" />
                         <TextBox
-                            x:Name="Antal_Pladser5"
+                            x:Name="TotalOmsætning"
                             Width="120"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -437,7 +437,7 @@
                             Text="Omsætning Fra 20 - 24:"
                             TextWrapping="Wrap" />
                         <TextBox
-                            x:Name="Antal_Pladser2"
+                            x:Name="Omsætning20To24"
                             Width="120"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -448,7 +448,7 @@
                             Text="{Binding SelectedDate.Revenue20To24, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
-                            x:Name="Add_Seat2"
+                            x:Name="EnterOmsætning20To24"
                             Width="60"
                             Height="43"
                             HorizontalAlignment="Left"
@@ -472,7 +472,7 @@
                             Text="Omsætning Fra 24 - Lukketid:"
                             TextWrapping="Wrap" />
                         <TextBox
-                            x:Name="Antal_Pladser1"
+                            x:Name="Omæstning24ToClose"
                             Width="120"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -483,7 +483,7 @@
                             Text="{Binding SelectedDate.Revenue24ToClose, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
-                            x:Name="Add_Seat1"
+                            x:Name="EnterOmsætning24ToClose"
                             Width="60"
                             Height="46"
                             HorizontalAlignment="Left"
@@ -512,7 +512,7 @@
                             Text="Deltagere I Alt:"
                             TextWrapping="Wrap" />
                         <TextBox
-                            x:Name="Antal_Pladser4"
+                            x:Name="TotalParticipants1"
                             Width="120"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -523,7 +523,7 @@
                             Text="{Binding SelectedDate.TotalParticipants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
-                            x:Name="Add_Seat4"
+                            x:Name="Check"
                             Width="60"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -547,7 +547,7 @@
                             Text="Total Quiz Omsætning:"
                             TextWrapping="Wrap" />
                         <TextBox
-                            x:Name="Antal_Pladser3"
+                            x:Name="TotalQuizRevenue1"
                             Width="120"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -558,7 +558,7 @@
                             Text="{Binding SelectedDate.TotalRevenueQuiz, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
-                            x:Name="Add_Seat3"
+                            x:Name="TotalQuizEnter"
                             Width="60"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -582,7 +582,7 @@
                             Text="Total Omsætning                     For Quiz Deltagere: "
                             TextWrapping="Wrap" />
                         <TextBox
-                            x:Name="Antal_Pladser7"
+                            x:Name="TotalRevenueQuizParticipants2"
                             Width="120"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -593,7 +593,7 @@
                             Text="{Binding SelectedDate.TotalRevenueQuizParticipants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
-                            x:Name="Add_Seat7"
+                            x:Name="TotalParticipantQuizEnter"
                             Width="60"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -617,7 +617,7 @@
                             Text="Omsætning Af Quiz Tilbud: "
                             TextWrapping="Wrap" />
                         <TextBox
-                            x:Name="Antal_Pladser6"
+                            x:Name="RevenueQuizOffers2"
                             Width="120"
                             Height="45"
                             HorizontalAlignment="Left"
@@ -628,7 +628,7 @@
                             Text="{Binding SelectedDate.RevenueQuizOffers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
-                            x:Name="Add_Seat6"
+                            x:Name="RevenueQuizOffersEnter"
                             Width="60"
                             Height="44"
                             HorizontalAlignment="Left"

@@ -113,8 +113,6 @@ namespace QuizManager.ViewModel
         #endregion
 
  
-
-
         #region Constructor
 
 
@@ -182,6 +180,7 @@ namespace QuizManager.ViewModel
         public void RemoveGroup()
         {
             SelectedDate.RemoveGroup(SelectedGroup.TeamName);
+            CheckTotalParticipants();
         }
 
         //tilføjelse af 1 deltager

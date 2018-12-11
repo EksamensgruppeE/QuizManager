@@ -103,6 +103,26 @@ namespace QuizManager.Model
         #region Methods
 
 
+        //tilføjelse af 1 deltager
+        public void AddOneParticipant()
+        {
+            Participants++;
+        }
+
+        //fjernelse af 1 deltager
+        public void RemoveOneParticipant()
+        {
+            if (Participants > 0) Participants--;
+        }
+
+        //tilføjelse af 1 betaling
+        public void AddOnePayment()
+        {
+            if (NumberOfPayments<Participants) NumberOfPayments++;
+            if (NumberOfPayments >= Participants) AllPaidMessage = "Alle Betalt";
+            
+        }
+
 
         #endregion
 
