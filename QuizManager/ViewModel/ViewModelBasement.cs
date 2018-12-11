@@ -32,7 +32,7 @@ namespace QuizManager.ViewModel
         
         private ObservableCollection<ModelDate> _dates;
         private ModelGroup _selectedGroup;
-        private ModelDate _selectedDate;
+        private static ModelDate _selectedDate;
 
        
 
@@ -54,8 +54,6 @@ namespace QuizManager.ViewModel
 
         public int NumberOfPayments { get; set; }
 
-        public string AllPayed { get; set; }
-
         public int NumberOfAttendingParticipants { get; set; }
 
 
@@ -66,9 +64,9 @@ namespace QuizManager.ViewModel
 
         #region Properties
         //properties som bruges til at oprette nye datoer med
-        private int Year { get; set; }
-        private int Month { get; set; }
-        private int Day { get; set; }
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public int Day { get; set; }
         public string EventType { get; set; }
 
         public int TotalSeats { get; set; }
@@ -109,14 +107,10 @@ namespace QuizManager.ViewModel
         }
 
 
-
-    
-
         #endregion
 
-        
 
-        
+ 
         #region Constructor
 
 
@@ -128,6 +122,7 @@ namespace QuizManager.ViewModel
 
         }
         #endregion
+
 
         #region Methods
 
@@ -162,6 +157,7 @@ namespace QuizManager.ViewModel
             ModelEventsBasementSingleton.Instance.AddDate(new ModelDate(new DateTime(Year, Month, Day), EventType, TotalSeats));
         }
         
+        //metode til at fjerne en dato fra listen 
         public void RemoveDate()
         {
             ModelEventsBasementSingleton.Instance.RemoveDate(SelectedDate.Date);
@@ -182,11 +178,56 @@ namespace QuizManager.ViewModel
         public void RemoveGroup()
         {
             SelectedDate.RemoveGroup(SelectedGroup.TeamName);
+            CheckTotalParticipants();
+        }
+
+        //tilføjelse af 1 deltager
+        public void AddOneParticipant()
+        {
+            SelectedGroup.Participants++;
+            CheckTotalParticipants();
+            if (SelectedGroup.NumberOfPayments<SelectedGroup.Participants) SelectedGroup.AllPaidMessage = "";
+
+        }
+
+        //fjernelse af 1 deltager
+        public void RemoveOneParticipant()
+        {
+            if (SelectedGroup.Participants > 0) SelectedGroup.Participants--;
+            CheckTotalParticipants();
+        }
+
+        //tilføjelse af 1 betaling
+        public void AddOnePayment()
+        {
+            if (SelectedGroup.NumberOfPayments < SelectedGroup.Participants) SelectedGroup.NumberOfPayments++;
+            if (SelectedGroup.NumberOfPayments >= SelectedGroup.Participants) SelectedGroup.AllPaidMessage = "Alle Betalt";
+        }
+
+        //fjernelse af 1 betaling
+        public void RemoveOnePayment()
+        {
+            if (SelectedGroup.NumberOfPayments > 0) SelectedGroup.NumberOfPayments--;
+            SelectedGroup.AllPaidMessage = "";
+        }
+
+        //tilføjelse af 1 tilstedeværende deltager (vedkommende er dukket op)
+        public void AddOneAttending()
+        {
+            if (SelectedGroup.NumberOfAttendingParticipants < SelectedGroup.Participants) SelectedGroup.NumberOfAttendingParticipants++;
+            if (SelectedGroup.NumberOfAttendingParticipants >= SelectedGroup.Participants) SelectedGroup.AllAttendingMessage = "Alle fremmødt";
+        }
+
+        //fjernelse af 1 tilstedeværende deltager (vedkommende er taget hjem eller har aflyst
+        public void RemoveOneAttending()
+        {
+            if (SelectedGroup.NumberOfAttendingParticipants > 0) SelectedGroup.NumberOfAttendingParticipants--;
+            if (SelectedGroup.NumberOfAttendingParticipants < SelectedGroup.Participants) SelectedGroup.AllAttendingMessage = "";
         }
 
         #endregion
 
- 
+
 
 
         #endregion
