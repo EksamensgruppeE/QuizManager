@@ -159,7 +159,7 @@ namespace QuizManager.ViewModel
             ModelEventsBasementSingleton.Instance.AddDate(new ModelDate(new DateTime(Year, Month, Day), EventType, TotalSeats));
         }
         
-        //metode til at fjerne en dato fra listen
+        //metode til at fjerne en dato fra listen 
         public void RemoveDate()
         {
             ModelEventsBasementSingleton.Instance.RemoveDate(SelectedDate.Date);
@@ -187,12 +187,14 @@ namespace QuizManager.ViewModel
         public void AddOneParticipant()
         {
             SelectedGroup.Participants++;
+            CheckTotalParticipants();
         }
 
         //fjernelse af 1 deltager
         public void RemoveOneParticipant()
         {
             if (SelectedGroup.Participants > 0) SelectedGroup.Participants--;
+            CheckTotalParticipants();
         }
 
         //tilføjelse af 1 betaling
