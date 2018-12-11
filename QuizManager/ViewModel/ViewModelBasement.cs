@@ -183,9 +183,49 @@ namespace QuizManager.ViewModel
             CheckTotalParticipants();
         }
 
+        //tilføjelse af 1 deltager
+        public void AddOneParticipant()
+        {
+            SelectedGroup.Participants++;
+        }
+
+        //fjernelse af 1 deltager
+        public void RemoveOneParticipant()
+        {
+            if (SelectedGroup.Participants > 0) SelectedGroup.Participants--;
+        }
+
+        //tilføjelse af 1 betaling
+        public void AddOnePayment()
+        {
+            if (SelectedGroup.NumberOfPayments < SelectedGroup.Participants) SelectedGroup.NumberOfPayments++;
+            if (SelectedGroup.NumberOfPayments >= SelectedGroup.Participants) SelectedGroup.AllPaidMessage = "Alle Betalt";
+        }
+
+        //fjernelse af 1 betaling
+        public void RemoveOnePayment()
+        {
+            if (SelectedGroup.NumberOfPayments > 0) SelectedGroup.NumberOfPayments--;
+            if (SelectedGroup.NumberOfPayments < SelectedGroup.Participants) SelectedGroup.AllPaidMessage = "";
+        }
+
+        //tilføjelse af 1 tilstedeværende deltager (vedkommende er dukket op)
+        public void AddOneAttending()
+        {
+            if (SelectedGroup.NumberOfAttendingParticipants < SelectedGroup.Participants) SelectedGroup.NumberOfAttendingParticipants++;
+            if (SelectedGroup.NumberOfAttendingParticipants >= SelectedGroup.Participants) SelectedGroup.AllAttendingMessage = "Alle fremmødt";
+        }
+
+        //fjernelse af 1 tilstedeværende deltager (vedkommende er taget hjem eller har aflyst
+        public void RemoveOneAttending()
+        {
+            if (SelectedGroup.NumberOfAttendingParticipants > 0) SelectedGroup.NumberOfAttendingParticipants--;
+            if (SelectedGroup.NumberOfAttendingParticipants < SelectedGroup.Participants) SelectedGroup.AllAttendingMessage = "";
+        }
+
         #endregion
 
- 
+
 
 
         #endregion
