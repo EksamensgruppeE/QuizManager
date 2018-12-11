@@ -119,6 +119,7 @@ namespace QuizManager.Model
         {
             if (NumberOfPayments<Participants) NumberOfPayments++;
             if (NumberOfPayments >= Participants) AllPaidMessage = "Alle Betalt";
+            
         }
 
         //fjernelse af 1 betaling
