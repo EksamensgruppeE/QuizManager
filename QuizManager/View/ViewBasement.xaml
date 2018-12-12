@@ -443,21 +443,25 @@
             Grid.ColumnSpan="2"
             Margin="20,0,0,0">
 
-            <StackPanel x:Name="TitlePanel" Orientation="Vertical" 
-                        Background="#354357"
-                        BorderBrush="#282b30"
-                        BorderThickness="2,0,0,2"
-                        CornerRadius="5,5,5,5" Margin="-15,0,0,0">
-                
+            <StackPanel
+                x:Name="TitlePanel"
+                Margin="-15,0,0,0"
+                Background="#354357"
+                BorderBrush="#282b30"
+                BorderThickness="2,0,0,2"
+                CornerRadius="5,5,5,5"
+                Orientation="Vertical">
+
 
                 <TextBlock
                     Height="40"
+                    Margin="-2,0,0,0"
                     Padding="10,0,0,0"
                     FontSize="20"
                     FontWeight="Bold"
                     Foreground="#282b30"
                     Text="Informationer For Det Valgte Event"
-                    TextWrapping="Wrap" Margin="-2,0,0,0" />
+                    TextWrapping="Wrap" />
             </StackPanel>
             <StackPanel
                 x:Name="Events"
@@ -472,28 +476,23 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="300"
-                            Margin="0,5,0,0"
-                            FontSize="22"
+                            Foreground="#282b30"
                             Text="Antal Stole I Alt:"
                             TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Antal_Pladser"
-                            Width="120"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
-                            FontSize="24"
                             Foreground="#FF050589"
                             Text="{Binding SelectedDate.TotalSeats, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Subtract_Seat"
-                            Width="30"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="-">
+                            Content="-"
+                            Foreground="White">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction MethodName="SubtractSeat" TargetObject="{Binding Mode=OneWay}" />
@@ -503,11 +502,10 @@
                         </Button>
                         <Button
                             x:Name="Add_Seat"
-                            Width="30"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="+">
+                            Content="+"
+                            Foreground="White">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction MethodName="AddSeat" TargetObject="{Binding Mode=OneWay}" />
@@ -516,34 +514,26 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel
-                        x:Name="TotalRevenue"
-                        Margin="0,12,0,0"
-                        Orientation="Horizontal">
+                    <StackPanel x:Name="TotalRevenue" Orientation="Horizontal">
                         <TextBlock
                             Width="300"
-                            Margin="0,5,0,0"
-                            FontSize="22"
+                            Foreground="#282b30"
                             Text="Total Omsætning:"
                             TextWrapping="Wrap" />
                         <TextBox
                             x:Name="TotalOmsætning"
-                            Width="120"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
-                            FontSize="24"
                             Foreground="#FF050589"
                             Text="{Binding SelectedDate.TotalRevenue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Subtract_Seat5"
-                            Width="60"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Enter">
+                            Content="Enter"
+                            Foreground="White">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction />
@@ -552,34 +542,26 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel
-                        x:Name="Revenue20To24"
-                        Margin="0,12,0,0"
-                        Orientation="Horizontal">
+                    <StackPanel x:Name="Revenue20To24" Orientation="Horizontal">
                         <TextBlock
                             Width="300"
-                            Margin="0,5,0,0"
-                            FontSize="22"
+                            Foreground="#282b30"
                             Text="Omsætning Fra 20 - 24:"
                             TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Omsætning20To24"
-                            Width="120"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
-                            FontSize="24"
                             Foreground="#FF050589"
                             Text="{Binding SelectedDate.Revenue20To24, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="EnterOmsætning20To24"
-                            Width="60"
-                            Height="43"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Enter">
+                            Content="Enter"
+                            Foreground="White">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction />
@@ -588,34 +570,26 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel
-                        x:Name="Revenue24ToClose1"
-                        Margin="0,12,0,0"
-                        Orientation="Horizontal">
+                    <StackPanel x:Name="Revenue24ToClose1" Orientation="Horizontal">
                         <TextBlock
                             Width="300"
-                            Margin="0,5,0,0"
-                            FontSize="22"
+                            Foreground="#282b30"
                             Text="Omsætning Fra 24 - Lukketid:"
                             TextWrapping="Wrap" />
                         <TextBox
                             x:Name="Omæstning24ToClose"
-                            Width="120"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
-                            FontSize="24"
                             Foreground="#FF050589"
                             Text="{Binding SelectedDate.Revenue24ToClose, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="EnterOmsætning24ToClose"
-                            Width="60"
-                            Height="46"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Enter">
+                            Content="Enter"
+                            Foreground="White">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction />
@@ -625,38 +599,31 @@
                         </Button>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel
-                    x:Name="Events2"
-                    Margin="50,0,0,0"
-                    Orientation="Vertical">
+                <StackPanel x:Name="Events2" Orientation="Vertical">
                     <StackPanel
                         x:Name="TotalParticipants"
                         Margin="0"
                         Orientation="Horizontal">
                         <TextBlock
                             Width="374"
-                            Margin="0,5,0,0"
-                            FontSize="22"
+                            Margin="15,0,0,0"
+                            Foreground="#282b30"
                             Text="Deltagere I Alt:"
                             TextWrapping="Wrap" />
                         <TextBox
                             x:Name="TotalParticipants1"
-                            Width="120"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
-                            FontSize="24"
                             Foreground="#FF050589"
                             Text="{Binding SelectedDate.TotalParticipants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Check"
-                            Width="60"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Check">
+                            Content="Check"
+                            Foreground="White">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction MethodName="CheckTotalParticipants" TargetObject="{Binding Mode=OneWay}" />
@@ -665,34 +632,27 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel
-                        x:Name="TotalRevenueQuiz"
-                        Margin="0,12,0,0"
-                        Orientation="Horizontal">
+                    <StackPanel x:Name="TotalRevenueQuiz" Orientation="Horizontal">
                         <TextBlock
                             Width="374"
-                            Margin="0,5,0,0"
-                            FontSize="22"
+                            Margin="15,0,0,0"
+                            Foreground="#282b30"
                             Text="Total Quiz Omsætning:"
                             TextWrapping="Wrap" />
                         <TextBox
                             x:Name="TotalQuizRevenue1"
-                            Width="120"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
-                            FontSize="24"
                             Foreground="#FF050589"
                             Text="{Binding SelectedDate.TotalRevenueQuiz, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="TotalQuizEnter"
-                            Width="60"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Enter">
+                            Content="Enter"
+                            Foreground="White">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction />
@@ -701,34 +661,27 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel
-                        x:Name="TotalRevenueQuizParticipants"
-                        Margin="0,12,0,0"
-                        Orientation="Horizontal">
+                    <StackPanel x:Name="TotalRevenueQuizParticipants" Orientation="Horizontal">
                         <TextBlock
                             Width="374"
-                            Margin="0,5,0,0"
-                            FontSize="22"
+                            Margin="15,0,0,0"
+                            Foreground="#282b30"
                             Text="Total Omsætning For Quiz Deltagere: "
                             TextWrapping="Wrap" />
                         <TextBox
                             x:Name="TotalRevenueQuizParticipants2"
-                            Width="120"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
-                            FontSize="24"
                             Foreground="#FF050589"
                             Text="{Binding SelectedDate.TotalRevenueQuizParticipants, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="TotalParticipantQuizEnter"
-                            Width="60"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Enter">
+                            Content="Enter"
+                            Foreground="White">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction />
@@ -737,34 +690,27 @@
 
                         </Button>
                     </StackPanel>
-                    <StackPanel
-                        x:Name="RevenueQuizOffers"
-                        Margin="0,12,0,0"
-                        Orientation="Horizontal">
+                    <StackPanel x:Name="RevenueQuizOffers" Orientation="Horizontal">
                         <TextBlock
                             Width="374"
-                            Margin="0,5,0,0"
-                            FontSize="22"
+                            Margin="15,0,0,0"
+                            Foreground="#282b30"
                             Text="Omsætning Af Quiz Tilbud: "
                             TextWrapping="Wrap" />
                         <TextBox
                             x:Name="RevenueQuizOffers2"
-                            Width="120"
-                            Height="45"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             FocusVisualPrimaryBrush="#FF9B0A0A"
-                            FontSize="24"
                             Foreground="#FF050589"
                             Text="{Binding SelectedDate.RevenueQuizOffers, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="RevenueQuizOffersEnter"
-                            Width="60"
-                            Height="44"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Content="Enter">
+                            Content="Enter"
+                            Foreground="White">
                             <Interactivity:Interaction.Behaviors>
                                 <Core:EventTriggerBehavior EventName="Click">
                                     <Core:CallMethodAction />
