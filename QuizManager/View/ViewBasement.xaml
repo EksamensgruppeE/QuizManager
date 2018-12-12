@@ -489,6 +489,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Subtract_Seat"
+                            Width="30"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="-"
@@ -502,6 +503,7 @@
                         </Button>
                         <Button
                             x:Name="Add_Seat"
+                            Width="30"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="+"
@@ -530,6 +532,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Subtract_Seat5"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -558,6 +561,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="EnterOmsætning20To24"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -586,6 +590,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="EnterOmsætning24ToClose"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -620,6 +625,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Check"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Check"
@@ -649,6 +655,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="TotalQuizEnter"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -678,6 +685,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="TotalParticipantQuizEnter"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -707,6 +715,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="RevenueQuizOffersEnter"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
