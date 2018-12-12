@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using QuizManager.Annotations;
 using QuizManager.Model;
 
@@ -159,22 +160,35 @@ namespace QuizManager.ViewModel
         //metode til at tilføje nye Datoer
         public void AddDate()
         {
-            ModelEventsBasementSingleton.Instance.AddDate(new ModelDate(new DateTime(Year, Month, Day), EventType, TotalSeats));
+            try
+            {
+                ModelEventsBasementSingleton.Instance.AddDate(new ModelDate(new DateTime(Year, Month, Day), EventType, TotalSeats));
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageDialogHelper.Show("Er dato indtastet korrekt? Format dd, mm, åååå","Ugyldig Dato");
+            }
         }
         
         //metode til at fjerne en dato fra listen 
         public void RemoveDate()
         {
-            ModelEventsBasementSingleton.Instance.RemoveDate(SelectedDate.Date);
+            if (SelectedDate != null) ModelEventsBasementSingleton.Instance.RemoveDate(SelectedDate.Date);
         }
+
+        #endregion
 
         #region Gruppe Metoder
 
         //tilføje nye grupper via GUI'en, samt opdatere TotalParticipants
         public void AddGroup()
         {
-            SelectedDate.AddGroup(new ModelGroup(TeamName, PhoneNumber, Participants, TableNr));
-            SelectedDate.TotalParticipants += Participants;
+            if (SelectedDate != null)
+            {
+                SelectedDate.AddGroup(new ModelGroup(TeamName, PhoneNumber, Participants, TableNr));
+                SelectedDate.TotalParticipants += Participants;
+            }
+
 
         }
 
@@ -182,62 +196,110 @@ namespace QuizManager.ViewModel
         //fjernelse af grupper via GUI'en
         public void RemoveGroup()
         {
-            SelectedDate.RemoveGroup(SelectedGroup.TeamName);
-            CheckTotalParticipants();
+            if (SelectedGroup != null)
+            {
+                SelectedDate.RemoveGroup(SelectedGroup.TeamName);
+                CheckTotalParticipants();
+            }
         }
 
         //tilføjelse af 1 deltager
         public void AddOneParticipant()
         {
-            SelectedGroup.Participants++;
-            CheckTotalParticipants();
-            if (SelectedGroup.NumberOfPayments<SelectedGroup.Participants) SelectedGroup.AllPaidMessage = "";
+            if (SelectedGroup != null)
+            {
+                SelectedGroup.Participants++;
+                CheckTotalParticipants();
+                SetAllPaidMessage(SelectedGroup);
+                SetAllAttendingMessage(SelectedGroup);
+            }
+
 
         }
 
         //fjernelse af 1 deltager
         public void RemoveOneParticipant()
         {
-            if (SelectedGroup.Participants > 0) SelectedGroup.Participants--;
-            CheckTotalParticipants();
+            if (SelectedGroup != null)
+            {
+                if (SelectedGroup.Participants > 0) SelectedGroup.Participants--;
+                CheckTotalParticipants();
+                SetAllAttendingMessage(SelectedGroup);
+                SetAllPaidMessage(SelectedGroup);
+                if (SelectedGroup.NumberOfPayments == SelectedGroup.Participants) ;
+            }
+
         }
 
         //tilføjelse af 1 betaling
         public void AddOnePayment()
         {
-            if (SelectedGroup.NumberOfPayments < SelectedGroup.Participants) SelectedGroup.NumberOfPayments++;
-            if (SelectedGroup.NumberOfPayments >= SelectedGroup.Participants) SelectedGroup.AllPaidMessage = "Alle Betalt";
+            if (SelectedGroup != null)
+            {
+                if (SelectedGroup.NumberOfPayments < SelectedGroup.Participants) SelectedGroup.NumberOfPayments++;
+                SetAllPaidMessage(SelectedGroup);
+            }
+
         }
 
         //fjernelse af 1 betaling
         public void RemoveOnePayment()
         {
-            if (SelectedGroup.NumberOfPayments > 0) SelectedGroup.NumberOfPayments--;
-            SelectedGroup.AllPaidMessage = "";
+            if (SelectedGroup != null)
+            {
+                if (SelectedGroup.NumberOfPayments > 0) SelectedGroup.NumberOfPayments--;
+                SetAllPaidMessage(SelectedGroup);
+            }
+
         }
 
         //tilføjelse af 1 tilstedeværende deltager (vedkommende er dukket op)
         public void AddOneAttending()
         {
-            if (SelectedGroup.NumberOfAttendingParticipants < SelectedGroup.Participants) SelectedGroup.NumberOfAttendingParticipants++;
-            if (SelectedGroup.NumberOfAttendingParticipants >= SelectedGroup.Participants) SelectedGroup.AllAttendingMessage = "Alle Mødt";
+            if (SelectedGroup != null)
+            {
+                if (SelectedGroup.NumberOfAttendingParticipants < SelectedGroup.Participants) SelectedGroup.NumberOfAttendingParticipants++;
+                SetAllAttendingMessage(SelectedGroup);
+            }
+
         }
 
         //fjernelse af 1 tilstedeværende deltager (vedkommende er taget hjem eller har aflyst
         public void RemoveOneAttending()
         {
-            if (SelectedGroup.NumberOfAttendingParticipants > 0) SelectedGroup.NumberOfAttendingParticipants--;
-            if (SelectedGroup.NumberOfAttendingParticipants < SelectedGroup.Participants) SelectedGroup.AllAttendingMessage = "";
+            if (SelectedGroup != null)
+            {
+                if (SelectedGroup.NumberOfAttendingParticipants > 0) SelectedGroup.NumberOfAttendingParticipants--;
+                SetAllAttendingMessage(SelectedGroup);
+            }
+
+        }
+
+        #region Private methods
+
+        private void SetAllPaidMessage(ModelGroup group)
+        {
+            if (group.NumberOfPayments == group.Participants) group.AllPaidMessage = "Alle betalt";
+            if (group.NumberOfPayments < group.Participants) group.AllPaidMessage = "";
+        }
+
+        private void SetAllAttendingMessage(ModelGroup group)
+        {
+            if (group.NumberOfAttendingParticipants == group.Participants) group.AllAttendingMessage = "Alle mødt";
+            if (group.NumberOfAttendingParticipants < group.Participants) group.AllAttendingMessage = "";
         }
 
         #endregion
 
-
-
-
         #endregion
 
-
-
+        private class MessageDialogHelper
+        {
+            public static async void Show(string content, string title)
+            {
+                MessageDialog messageDialog = new MessageDialog(content, title);
+                await messageDialog.ShowAsync();
+            }
+        }
     }
 }
