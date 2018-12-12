@@ -491,7 +491,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Subtract_Seat"
-                            Width="30"
+                            Width="29.5"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="-"
