@@ -142,7 +142,7 @@
                     <DataTemplate>
                         <StackPanel
                             Padding="0,5,0,10"
-                            BorderBrush="Black"
+                            BorderBrush="#282b30"
                             BorderThickness="0,0,0,1">
                             <TextBlock
                                 FontSize="20"
@@ -159,8 +159,8 @@
             <Button Content="Gå til Dato" Foreground="#FFFBFBFB" Margin="0,20,0,0" Click="Button_Click">
             </Button>
         </StackPanel>
-            <StackPanel Margin="0,100,0,0">
-                <Button Content="Slet Dato">
+            <StackPanel >
+                <Button Content="Slet Dato" >
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="RemoveDate"/>

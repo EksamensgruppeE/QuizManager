@@ -476,6 +476,7 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Antal Stole I Alt:"
                             TextWrapping="Wrap" />
@@ -519,6 +520,7 @@
                     <StackPanel x:Name="TotalRevenue" Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Total Omsætning:"
                             TextWrapping="Wrap" />
@@ -548,6 +550,7 @@
                     <StackPanel x:Name="Revenue20To24" Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Omsætning Fra 20 - 24:"
                             TextWrapping="Wrap" />
@@ -577,6 +580,7 @@
                     <StackPanel x:Name="Revenue24ToClose1" Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Omsætning Fra 24 - Lukketid:"
                             TextWrapping="Wrap" />
@@ -612,6 +616,7 @@
                         <TextBlock
                             Width="374"
                             Margin="15,0,0,0"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Deltagere I Alt:"
                             TextWrapping="Wrap" />
@@ -642,6 +647,7 @@
                         <TextBlock
                             Width="374"
                             Margin="15,0,0,0"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Total Quiz Omsætning:"
                             TextWrapping="Wrap" />
@@ -672,6 +678,7 @@
                         <TextBlock
                             Width="374"
                             Margin="15,0,0,0"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Total Omsætning For Quiz Deltagere: "
                             TextWrapping="Wrap" />
@@ -702,6 +709,7 @@
                         <TextBlock
                             Width="374"
                             Margin="15,0,0,0"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Omsætning Af Quiz Tilbud: "
                             TextWrapping="Wrap" />
