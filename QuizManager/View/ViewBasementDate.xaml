@@ -107,7 +107,7 @@
                                     Grid.Row="4"
                                     Grid.Column="1"
                                     PlaceholderText="Antal deltagere"
-                                    Text="{Binding Participants, Mode=TwoWay}" />
+                                    Text="{Binding TotalSeats, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                 <Button
                                     x:Name="Tilføj_event_knap"
                                     Grid.Row="5"
