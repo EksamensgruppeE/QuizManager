@@ -183,11 +183,14 @@ namespace QuizManager.ViewModel
         //tilføje nye grupper via GUI'en, samt opdatere TotalParticipants
         public void AddGroup()
         {
+
             if (SelectedDate != null)
             {
                 SelectedDate.AddGroup(new ModelGroup(TeamName, PhoneNumber, Participants, TableNr));
                 SelectedDate.TotalParticipants += Participants;
+                SelectedDate.TotalSeats -= Participants;
             }
+
 
 
         }
@@ -196,23 +199,30 @@ namespace QuizManager.ViewModel
         //fjernelse af grupper via GUI'en
         public void RemoveGroup()
         {
+
             if (SelectedGroup != null)
             {
+                SelectedDate.TotalSeats += SelectedGroup.Participants;
                 SelectedDate.RemoveGroup(SelectedGroup.TeamName);
                 CheckTotalParticipants();
             }
+
+
         }
 
         //tilføjelse af 1 deltager
         public void AddOneParticipant()
         {
+
             if (SelectedGroup != null)
             {
                 SelectedGroup.Participants++;
                 CheckTotalParticipants();
                 SetAllPaidMessage(SelectedGroup);
                 SetAllAttendingMessage(SelectedGroup);
+                SubtractSeat();
             }
+
 
 
         }
@@ -220,6 +230,7 @@ namespace QuizManager.ViewModel
         //fjernelse af 1 deltager
         public void RemoveOneParticipant()
         {
+
             if (SelectedGroup != null)
             {
                 if (SelectedGroup.Participants > 0) SelectedGroup.Participants--;
@@ -227,7 +238,9 @@ namespace QuizManager.ViewModel
                 SetAllAttendingMessage(SelectedGroup);
                 SetAllPaidMessage(SelectedGroup);
                 if (SelectedGroup.NumberOfPayments == SelectedGroup.Participants) ;
+                AddSeat();
             }
+
 
         }
 
