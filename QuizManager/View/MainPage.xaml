@@ -41,7 +41,7 @@
                 <TextBlock
                     x:Name="Title"
                     Margin="0,0,50,0"
-                    FontFamily="Segoe Print"
+                    FontFamily="MV Boli"
                     FontSize="50"
                     FontWeight="Bold"
                     Foreground="White"

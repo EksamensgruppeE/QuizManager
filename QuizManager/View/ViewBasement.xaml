@@ -450,7 +450,7 @@
                 BorderBrush="#282b30"
                 BorderThickness="2,0,0,2"
                 CornerRadius="5,5,5,5"
-                Orientation="Vertical">
+                Orientation="Horizontal">
 
 
                 <TextBlock
@@ -462,6 +462,7 @@
                     Foreground="#282b30"
                     Text="Informationer For Det Valgte Event"
                     TextWrapping="Wrap" />
+
             </StackPanel>
             <StackPanel
                 x:Name="Events"
@@ -476,6 +477,7 @@
                         Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Antal Stole I Alt:"
                             TextWrapping="Wrap" />
@@ -489,6 +491,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Subtract_Seat"
+                            Width="30"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="-"
@@ -502,6 +505,7 @@
                         </Button>
                         <Button
                             x:Name="Add_Seat"
+                            Width="30"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="+"
@@ -517,6 +521,7 @@
                     <StackPanel x:Name="TotalRevenue" Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Total Omsætning:"
                             TextWrapping="Wrap" />
@@ -530,6 +535,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Subtract_Seat5"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -545,6 +551,7 @@
                     <StackPanel x:Name="Revenue20To24" Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Omsætning Fra 20 - 24:"
                             TextWrapping="Wrap" />
@@ -558,6 +565,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="EnterOmsætning20To24"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -573,6 +581,7 @@
                     <StackPanel x:Name="Revenue24ToClose1" Orientation="Horizontal">
                         <TextBlock
                             Width="300"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Omsætning Fra 24 - Lukketid:"
                             TextWrapping="Wrap" />
@@ -586,6 +595,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="EnterOmsætning24ToClose"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -607,6 +617,7 @@
                         <TextBlock
                             Width="374"
                             Margin="15,0,0,0"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Deltagere I Alt:"
                             TextWrapping="Wrap" />
@@ -620,6 +631,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="Check"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Check"
@@ -636,6 +648,7 @@
                         <TextBlock
                             Width="374"
                             Margin="15,0,0,0"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Total Quiz Omsætning:"
                             TextWrapping="Wrap" />
@@ -649,6 +662,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="TotalQuizEnter"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -665,6 +679,7 @@
                         <TextBlock
                             Width="374"
                             Margin="15,0,0,0"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Total Omsætning For Quiz Deltagere: "
                             TextWrapping="Wrap" />
@@ -678,6 +693,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="TotalParticipantQuizEnter"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
@@ -694,6 +710,7 @@
                         <TextBlock
                             Width="374"
                             Margin="15,0,0,0"
+                            FontWeight="bold"
                             Foreground="#282b30"
                             Text="Omsætning Af Quiz Tilbud: "
                             TextWrapping="Wrap" />
@@ -707,6 +724,7 @@
                             TextWrapping="Wrap" />
                         <Button
                             x:Name="RevenueQuizOffersEnter"
+                            Width="60"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
                             Content="Enter"
