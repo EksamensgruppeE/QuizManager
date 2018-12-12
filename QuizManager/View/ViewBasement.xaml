@@ -450,7 +450,7 @@
                 BorderBrush="#282b30"
                 BorderThickness="2,0,0,2"
                 CornerRadius="5,5,5,5"
-                Orientation="Vertical">
+                Orientation="Horizontal">
 
 
                 <TextBlock
@@ -462,6 +462,7 @@
                     Foreground="#282b30"
                     Text="Informationer For Det Valgte Event"
                     TextWrapping="Wrap" />
+
             </StackPanel>
             <StackPanel
                 x:Name="Events"
