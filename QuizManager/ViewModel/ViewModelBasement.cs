@@ -227,7 +227,7 @@ namespace QuizManager.ViewModel
 
         }
 
-        //fjernelse af 1 deltager
+        //Fjernelse af 1 deltager
         public void RemoveOneParticipant()
         {
 
@@ -244,7 +244,7 @@ namespace QuizManager.ViewModel
 
         }
 
-        //tilføjelse af 1 betaling
+        //Tilføjelse af 1 betaling
         public void AddOnePayment()
         {
             if (SelectedGroup != null)

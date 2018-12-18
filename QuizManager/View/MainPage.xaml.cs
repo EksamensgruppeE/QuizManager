@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using QuizManager.View;
+using QuizManager.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -46,6 +47,7 @@ namespace QuizManager
             if (MainFrame.CanGoForward)
             {
                 MainFrame.GoForward();
+                
             }
         }
 
@@ -88,6 +90,7 @@ namespace QuizManager
                     YouAreHere.Text = "Indstillinger";
                     if (SplitViewMenu.IsPaneOpen) SplitViewMenu.IsPaneOpen = false;
 
+                    
                 }
             }
     }
