@@ -36,7 +36,7 @@ namespace QuizManager.Model
 
         //Collection af ModelDates
 
-      
+
         //vores liste af datoer for Basement.
         public ObservableCollection<ModelDate> BasementDates
         {
@@ -48,7 +48,7 @@ namespace QuizManager.Model
             }
         }
 
-        
+
         //property, hvis get metode kalder vores private constructor, gennem et if statement der sikrer at der kun skabes
         //1 instance af classen. 
         public static ModelEventsBasementSingleton Instance
@@ -61,7 +61,7 @@ namespace QuizManager.Model
             }
         }
 
-   
+
 
         #endregion
 
@@ -72,7 +72,7 @@ namespace QuizManager.Model
         private ModelEventsBasementSingleton()
         {
             _dates = new ObservableCollection<ModelDate>();
-            AddTest();
+            LoadBasement();
         }
 
         #endregion
@@ -96,8 +96,8 @@ namespace QuizManager.Model
 
         public void AddTest()
         {
-            _dates.Add(new ModelDate(new DateTime(2018, 11, 21),  "MusikQuiz", 52));
-            _dates.Add(new ModelDate(new DateTime(2018, 11, 23),  "DisneyQuiz", 38));
+            _dates.Add(new ModelDate(new DateTime(2018, 11, 21), "MusikQuiz", 52));
+            _dates.Add(new ModelDate(new DateTime(2018, 11, 23), "DisneyQuiz", 38));
             _dates.Add(new ModelDate(new DateTime(2018, 11, 01), "Bingo", 55));
             BasementDates[0].AddGroup(new ModelGroup("Russerne", "10203040", 7, 1));
             BasementDates[0].AddGroup(new ModelGroup("StupidTeamName", "20304050", 3, 1));
@@ -113,6 +113,23 @@ namespace QuizManager.Model
             BasementDates[0].TotalRevenueQuizParticipants = 4500;
             BasementDates[0].TotalRevenueQuiz = 3500;
 
+        }
+
+        public async void LoadBasement()
+        {
+            var events = await PersistencyService.LoadNotesFromJsonAsync();
+            if (events != null)
+                foreach (var ev in events)
+                {
+                    BasementDates.Add(ev);
+                }
+            else
+            {
+                //Data til testformål
+                BasementDates.Add(new ModelDate(new DateTime(2018, 11, 21), "MusikQuiz", 52));
+                BasementDates.Add(new ModelDate(new DateTime(2018, 11, 23), "DisneyQuiz", 38));
+                BasementDates.Add(new ModelDate(new DateTime(2018, 11, 01), "Bingo", 55));
+            }
         }
     }
 }
