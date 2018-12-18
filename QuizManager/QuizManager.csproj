@@ -105,6 +105,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\ViewModelAlpehytten.cs" />
     <Compile Include="ViewModel\ViewModelBasement.cs" />
+    <Compile Include="ViewModel\ViewModelMasterSave.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
