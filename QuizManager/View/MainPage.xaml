@@ -4,6 +4,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:QuizManager"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:ViewModel="using:QuizManager.ViewModel"
     x:Class="QuizManager.MainPage"
     mc:Ignorable="d">
@@ -101,6 +103,25 @@
                 
                 />
 
+
+
+
+            <Button
+                x:Name="SaveButton"
+                Margin="15,0,0,0"
+                Background="{x:Null}"
+                Content="&#xE74E;"
+                FontFamily="Segoe MDL2 Assets"
+                FontSize="29"
+                Foreground="White"
+                RelativePanel.RightOf="GoBackButton"
+                Style="{StaticResource StandardMenuButton}" VerticalAlignment="Top" >
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:CallMethodAction MethodName="SaveAll" TargetObject="{Binding Mode=OneWay}" />
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </Button>
 
 
             <!--  Menu Open/Close  -->
