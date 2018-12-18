@@ -98,7 +98,6 @@
     </Compile>
     <Compile Include="Model\ModelEventsAlpehyttenSingleton.cs" />
     <Compile Include="Model\ModelEventsBasementSingleton.cs" />
-    <Compile Include="Model\ModelLog.cs" />
     <Compile Include="Model\ModelDate.cs" />
     <Compile Include="Model\ModelGroup.cs" />
     <Compile Include="Model\PersistencyService.cs" />
