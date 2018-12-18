@@ -101,6 +101,7 @@
     <Compile Include="Model\ModelLog.cs" />
     <Compile Include="Model\ModelDate.cs" />
     <Compile Include="Model\ModelGroup.cs" />
+    <Compile Include="Model\PersistencyService.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModel\ViewModelAlpehytten.cs" />
     <Compile Include="ViewModel\ViewModelBasement.cs" />
