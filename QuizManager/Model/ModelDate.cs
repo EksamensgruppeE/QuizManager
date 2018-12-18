@@ -162,6 +162,15 @@ namespace QuizManager.Model
             TotalSeats = totalSeats;
         }
 
+        //Defult Constructor For Load funktionen
+
+        public ModelDate()
+        {
+            Groups = new ObservableCollection<ModelGroup>();
+        }
+
+
+
         #endregion
 
 
