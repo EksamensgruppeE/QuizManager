@@ -77,7 +77,7 @@
                                         Grid.Column="0"
                                         FontSize="20"
                                         Foreground="White"
-                                        Text="år: " />
+                                        Text="År: " />
                                     <TextBlock
                                         Grid.Row="3"
                                         Grid.Column="0"
