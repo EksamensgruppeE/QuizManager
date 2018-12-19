@@ -32,7 +32,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Dato" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <TextBlock Grid.Column="1" Text="Event" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        <TextBlock Grid.Column="2" Text="Antal Deltager" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="2" Text="Antal Deltagere" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <TextBlock Grid.Column="3" Text="Deltager Omsætning" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <TextBlock Grid.Column="4" Text="Event Tilbud" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <TextBlock Grid.Column="5" Text="Event Omsætning" Style="{ThemeResource CaptionTextBlockStyle}"/>

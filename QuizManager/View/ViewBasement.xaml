@@ -301,7 +301,7 @@
                 VerticalAlignment="Center"
                 FontWeight="Bold"
                 Foreground="#282b30"
-                Text="Antal deltagere: " />
+                Text="Antal tilmeldte deltagere: " />
             <StackPanel
                 Grid.Row="4"
                 Grid.Column="1"
@@ -332,7 +332,7 @@
                 VerticalAlignment="Center"
                 FontWeight="Bold"
                 Foreground="#282b30"
-                Text="Betalte: " />
+                Text="Antal betalinger: " />
             <TextBlock
                 Grid.Row="6"
                 Grid.Column="0"
@@ -340,7 +340,7 @@
                 VerticalAlignment="Center"
                 FontWeight="Bold"
                 Foreground="#282b30"
-                Text="Antal deltagere: " />
+                Text="Antal fremmødte deltagere: " />
             <StackPanel
                 Grid.Row="6"
                 Grid.Column="1"
@@ -460,7 +460,7 @@
                     FontSize="20"
                     FontWeight="Bold"
                     Foreground="#282b30"
-                    Text="Informationer For Det Valgte Event"
+                    Text="Informationer for det valgte event"
                     TextWrapping="Wrap" />
 
             </StackPanel>
