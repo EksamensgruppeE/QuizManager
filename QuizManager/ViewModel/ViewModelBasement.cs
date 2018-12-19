@@ -237,7 +237,7 @@ namespace QuizManager.ViewModel
                 CheckTotalParticipants();
                 SetAllAttendingMessage(SelectedGroup);
                 SetAllPaidMessage(SelectedGroup);
-                if (SelectedGroup.NumberOfPayments == SelectedGroup.Participants) ;
+                if (SelectedGroup.NumberOfPayments == SelectedGroup.Participants) SetAllPaidMessage(SelectedGroup);
                 AddSeat();
             }
 
